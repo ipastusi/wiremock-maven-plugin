@@ -1,4 +1,4 @@
-package wiremock;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 import org.apache.maven.plugin.MojoExecutionException;

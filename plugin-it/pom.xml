@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <groupId>uk.co.automatictester</groupId>
+   <artifactId>wiremock-maven-plugin-it</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+   <modelVersion>4.0.0</modelVersion>
+
+   <build>
+      <plugins>
+
+         <plugin>
+            <groupId>uk.co.automatictester</groupId>
+            <artifactId>wiremock-maven-plugin</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+                  <configuration>
+                     <params>--root-dir=target/classes --port=8089</params>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>com.lazerycode.jmeter</groupId>
+            <artifactId>jmeter-maven-plugin</artifactId>
+            <version>1.10.1</version>
+            <executions>
+               <execution>
+                  <phase>integration-test</phase>
+                  <goals>
+                     <goal>jmeter</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+      </plugins>
+   </build>
+
+</project>

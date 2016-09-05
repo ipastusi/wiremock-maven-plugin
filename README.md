@@ -26,4 +26,6 @@ Custom params can be provided using **params** tag in plugin **configuration** s
 </configuration>
 ```
 
-See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for complete example. WireMock [manual](http://wiremock.org/docs/running-standalone/) provides detailed information on available command line options. 
+See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for complete example. WireMock [manual](http://wiremock.org/docs/running-standalone/) provides detailed information on available command line options.
+
+Pull requests are welcome, and if processed, release will follow shortly.

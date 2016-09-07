@@ -48,7 +48,7 @@ See WireMock [manual](http://wiremock.org/docs/running-standalone/) provides det
 
 Wiremock Maven Plugin will start WireMock on **localhost:8089** using mappings defined in `src/main/resources/mappings/sample.json` at **pre-integration-test** phase. When Maven process execution finishes, WireMock will be stopped as well.
 
-See [plugin-it/pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for a complete example.
+See [plugin-it/pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/7900107b050527ef7f7672a6074ad388cfc56f84/plugin-it/pom.xml) for a complete example.
 
 ## Repo structure
 

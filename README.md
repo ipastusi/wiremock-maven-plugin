@@ -36,7 +36,7 @@ Ultra-lightweight, super-simple WireMock Maven Plugin.
 </plugins>
 ```
 
-See WireMock [manual](http://wiremock.org/docs/running-standalone/) provides detailed information on available command line options. You can add or ramove other parameters, but keep the `--root-dir=target/classes` unchanged, unless you know what you are doing.
+See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line options. You can add or ramove other parameters, but keep the `--root-dir=target/classes` unchanged, unless you know what you are doing.
 
 - Add JSON files containing your mappings to the following folder:
 

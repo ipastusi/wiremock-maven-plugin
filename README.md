@@ -6,27 +6,64 @@
 
 Ultra-lightweight, super-simple WireMock Maven Plugin. 
 
-## plugin
+## Quick start guide
 
-Plugin itself. It will be available in Maven Central in next few days. To build it locally: `(cd plugin; mvn clean install)`
-
-## plugin-it
-
-All-in-one integration test and usage example. To run it locally: `(cd plugin-it; mvn clean verify)`
-
-How it works:
-- **wiremock-maven-plugin** grabs mappings defined in `src/main/resources/mappings/sample.json` at **pre-integration-test** phase
-- **jmeter-maven-plugin** executes JMeter test (**example.jmx**) against those mocks at **integration-test** phase
-- When Maven process execution is finished, WireMock is stopped as well
-
-Custom params can be provided using **params** tag in plugin **configuration** section:
+- Add plugin to your **pom.xml**:
 
 ```
-<configuration>
-   <params>--root-dir=target/classes --port=8089</params>
-</configuration>
+<plugins>
+
+   [...]
+
+   <plugin>
+      <groupId>uk.co.automatictester</groupId>
+      <artifactId>wiremock-maven-plugin</artifactId>
+      <version>1.0.0</version>
+      <executions>
+         <execution>
+            <goals>
+               <goal>run</goal>
+            </goals>
+            <configuration>
+               <params>--root-dir=target/classes --port=8089</params>
+            </configuration>
+         </execution>
+      </executions>
+   </plugin>
+   
+   [...]
+   
+</plugins>
 ```
 
-See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for complete example. WireMock [manual](http://wiremock.org/docs/running-standalone/) provides detailed information on available command line options.
+See WireMock [manual](http://wiremock.org/docs/running-standalone/) provides detailed information on available command line options. You can add or ramove other parameters, but keep the `--root-dir=target/classes` unchanged, unless you know what you are doing.
 
-Pull requests are welcome, and if processed, release will follow shortly.
+- Add JSON files containing your mappings to the following folder:
+
+`src/main/resources/mappings/`
+
+- Run your tests:
+
+`mvn clean verify`
+
+Wiremock Maven Plugin will start WireMock on **localhost:8089** using mappings defined in `src/main/resources/mappings/sample.json` at **pre-integration-test** phase. When Maven process execution finishes, WireMock will be stopped as well.
+
+See [plugin-it/pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for a complete example.
+
+## Repo structure
+
+### plugin
+
+This module contains plugin itself. If you want to build most recent version locally:
+
+`(cd plugin; mvn clean install)`
+
+### plugin-it
+
+This module contains all-in-one integration test and usage example. To run it locally:
+
+`(cd plugin-it; mvn clean verify)`
+
+## Other info
+
+Questions are welcome on Gitter. Pull requests are also welcome, and if processed, release will follow shortly.

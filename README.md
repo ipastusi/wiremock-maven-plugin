@@ -25,7 +25,7 @@ Ultra-lightweight, super-simple WireMock Maven Plugin.
                <goal>run</goal>
             </goals>
             <configuration>
-               <params>--root-dir=target/classes --port=8089</params>
+               <params>--root-dir=target/classes --port=8080</params>
             </configuration>
          </execution>
       </executions>
@@ -36,17 +36,20 @@ Ultra-lightweight, super-simple WireMock Maven Plugin.
 </plugins>
 ```
 
-See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line options. You can add or ramove other parameters, but keep the `--root-dir=target/classes` unchanged, unless you know what you are doing.
+See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line options. You can add or remove other parameters, but keep the `--root-dir=target/classes` unchanged, unless you know what you are doing.
 
-- Add JSON files containing your mappings to the following folder:
+- Add your mock definitions to the following folders:
 
-`src/main/resources/mappings/`
+```
+src/main/resources/mappings/
+src/main/resources/__files/
+```
 
 - Run your tests:
 
 `mvn clean verify`
 
-Wiremock Maven Plugin will start WireMock on **localhost:8089** using mappings defined in `src/main/resources/mappings/sample.json` at **pre-integration-test** phase. When Maven process execution finishes, WireMock will be stopped as well.
+Maven will copy your resources from `src/main/resources/` to `target/classes/`. Wiremock Maven Plugin will start WireMock on **localhost:8080** at **pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. When Maven process execution finishes, WireMock will be stopped as well.
 
 See [plugin-it/pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/7900107b050527ef7f7672a6074ad388cfc56f84/plugin-it/pom.xml) for a complete example.
 

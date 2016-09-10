@@ -3,16 +3,27 @@ package uk.co.automatictester.wiremock.maven.plugin;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
+import java.io.File;
+
 abstract public class ConfigurationMojo extends AbstractMojo {
 
     /**
-     * Parameters, in command-line format, e.g.:
-     * --root-dir=target/classes --port=8089
+     * Set the root directory (<i>--root-dir</i>), under which <i>mappings</i> and <i>__files</i> reside.
+     * This defaults to: <i>target/classes</i>
+     */
+    @Parameter(property = "dir", defaultValue = "target/classes")
+    private File dir;
+
+    /**
+     * Set all other parameters in command-line format, e.g.:
+     * <i>--port=8080 --verbose</i>
+     * Do <b>NOT</b> specify <i>--root-dir</i> here.
      */
     @Parameter(property = "params")
-    protected String params;
+    private String params;
 
-    protected String[] getParams() {
-        return params.split(" ");
+    protected String[] getAllParams() {
+        String allParams = String.format("%s%s %s", "--root-dir=", dir, params);
+        return allParams.split(" ");
     }
 }

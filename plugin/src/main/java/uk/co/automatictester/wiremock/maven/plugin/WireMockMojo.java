@@ -5,10 +5,14 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
+import java.util.Arrays;
+
 @Mojo(name = "run", defaultPhase = LifecyclePhase.PRE_INTEGRATION_TEST)
 public class WireMockMojo extends ConfigurationMojo {
 
     public void execute() throws MojoExecutionException {
-        WireMockServerRunner.main(getParams());
+        String wireMockParams = Arrays.toString(getAllParams()).replaceAll("[\\[\\]]", "").replaceAll(", ", " ");
+        getLog().info("Starting WireMock with following params: " + wireMockParams);
+        WireMockServerRunner.main(getAllParams());
     }
 }

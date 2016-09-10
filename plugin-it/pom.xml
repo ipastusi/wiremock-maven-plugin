@@ -21,7 +21,8 @@
                      <goal>run</goal>
                   </goals>
                   <configuration>
-                     <params>--root-dir=target/classes --port=8089</params>
+                     <dir>target/classes</dir>
+                     <params>--port=8080</params>
                   </configuration>
                </execution>
             </executions>

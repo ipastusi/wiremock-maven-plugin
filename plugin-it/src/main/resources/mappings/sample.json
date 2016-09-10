@@ -6,8 +6,8 @@
   "response": {
     "status": 200,
     "headers": {
-      "Content-Type": "application/json"
+      "Content-Type": "text/html"
     },
-    "body": "{ \"id\": 1 }"
+    "bodyFileName": "sample.html"
   }
 }

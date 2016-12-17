@@ -31,7 +31,7 @@ src/main/resources/__files/
             </goals>
                <configuration>
                   <dir>target/classes</dir>
-                  <params>--port=8080</params>
+                  <params>--port=8081</params>
                </configuration>
          </execution>
       </executions>
@@ -48,7 +48,7 @@ See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed
 
 `mvn clean verify`
 
-Maven will copy your resources from `src/main/resources/` to `target/classes/`. Wiremock Maven Plugin will start WireMock on **localhost:8080** at **pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. When Maven process execution finishes, WireMock will be stopped as well.
+Maven will copy your resources from `src/main/resources/` to `target/classes/`. Wiremock Maven Plugin will start WireMock on **localhost:8081** at **pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. When Maven process execution finishes, WireMock will be stopped as well.
 
 See [plugin-it/pom.xml](https://github.com/deliverymind/wiremock-maven-plugin/blob/master/plugin-it/pom.xml) for a complete example.
 

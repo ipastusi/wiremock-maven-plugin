@@ -16,7 +16,7 @@ abstract public class ConfigurationMojo extends AbstractMojo {
 
     /**
      * Set all other parameters in command-line format, e.g.:
-     * <i>--port=8080 --verbose</i>
+     * <i>--port=8081 --verbose</i>
      * Do <b>NOT</b> specify <i>--root-dir</i> here.
      */
     @Parameter(property = "params")

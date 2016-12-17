@@ -65,7 +65,3 @@ This module contains plugin itself. If you want to build most recent version loc
 This module contains all-in-one integration test and usage example. To run it locally:
 
 `mvn -pl plugin-it clean verify`
-
-## Other info
-
-Questions are welcome on Gitter. Pull requests are also welcome, and if processed, release will follow shortly.

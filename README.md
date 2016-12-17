@@ -1,7 +1,6 @@
 # wiremock-maven-plugin
 
 [![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin)
-[![Join the chat at https://gitter.im/deliverymind/wiremock-maven-plugin](https://badges.gitter.im/deliverymind/wiremock-maven-plugin.svg)](https://gitter.im/deliverymind/wiremock-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Ultra-lightweight, super-simple WireMock Maven Plugin. 
 

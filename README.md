@@ -50,7 +50,7 @@ See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed
 
 Maven will copy your resources from `src/main/resources/` to `target/classes/`. Wiremock Maven Plugin will start WireMock on **localhost:8081** at **pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. When Maven process execution finishes, WireMock will be stopped as well.
 
-See [plugin-it/pom.xml](https://github.com/deliverymind/wiremock-maven-plugin/blob/b39542d64f4df86e9c4f771c2aeb394ac264aca5/plugin-it/pom.xml) for a complete example. 
+See [plugin-it/pom.xml](https://github.com/deliverymind/wiremock-maven-plugin/blob/2.1.0/plugin-it/pom.xml) for a complete example. 
 
 ## Repo structure
 

@@ -1,0 +1,51 @@
+#!groovy
+
+node {
+    def mvn
+    stage('Prepare') {
+        def mvnHome = tool 'M3'
+        mvn = "${mvnHome}/bin/mvn"
+        step([$class: 'WsCleanup'])
+        git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${REPO_URL}"
+    }
+    stage('Create release branch') {
+        sh "git checkout -b feature/release"
+    }
+    stage('Set release version number') {
+        sh "(cd plugin; ${mvn} versions:set -DnewVersion=${RELEASE_VERSION})"
+        sh "git add -A; git commit -m 'Release version bump'"
+    }
+    stage('Build - release') {
+        sh "(cd plugin; ${mvn} clean install)"
+    }
+    stage('Integration test - release') {
+        sh "(cd plugin-it; ${mvn} clean verify)"
+        sh "${mvn} -pl plugin-it clean verify"
+    }
+    stage('Tag release') {
+        sh "git tag ${RELEASE_VERSION}"
+    }
+    stage('Release artefacts') {
+        sh "(cd plugin; ${mvn} clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE})"
+    }
+    stage('Set snapshot version number') {
+        sh "(cd plugin; ${mvn} versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
+        sh "git add -A; git commit -m 'Post-release version bump'"
+    }
+    stage('Build - snapshot') {
+        sh "(cd plugin; ${mvn} clean install)"
+    }
+    stage('Integration test - snapshot') {
+        sh "(cd plugin-it; ${mvn} clean verify)"
+        sh "${mvn} -pl plugin-it clean verify"
+    }
+    stage('Merge release to master') {
+        sh "git checkout master; git rebase feature/release"
+        sh "git branch -d feature/release"
+    }
+    stage('Push release to origin/master') {
+        sshagent(["${GIT_CREDENTIALS_ID}"]) {
+            sh "git push --set-upstream origin master; git push --tags"
+        }
+    }
+}

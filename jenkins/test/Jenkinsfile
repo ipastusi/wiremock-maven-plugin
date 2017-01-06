@@ -1,0 +1,18 @@
+#!groovy
+
+node {
+    def mvn
+    stage('Prepare') {
+        def mvnHome = tool 'M3'
+        mvn = "${mvnHome}/bin/mvn"
+        step([$class: 'WsCleanup'])
+        git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${REPO_URL}"
+    }
+    stage('Build') {
+        sh "(cd plugin; ${mvn} clean install)"
+    }
+    stage('Integration test') {
+        sh "(cd plugin-it; ${mvn} clean verify)"
+        sh "${mvn} -pl plugin-it clean verify"
+    }
+}

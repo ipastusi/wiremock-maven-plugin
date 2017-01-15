@@ -5,6 +5,7 @@ def sharedLib = new SharedLib()
 node {
     stage('Prepare') {
         sharedLib.prepare()
+        sharedLib.purge()
     }
     stage('Set release version number') {
         withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
@@ -13,7 +14,6 @@ node {
         }
     }
     stage('Build - release') {
-        sharedLib.purge()
         sharedLib.build()
     }
     stage('Integration test - release') {
@@ -31,6 +31,9 @@ node {
             println 'Dry run - skipping this stage'
         }
     }
+    stage('Purge') {
+        sharedLib.purge()
+    }
     stage('Set snapshot version number') {
         withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
             sh "(cd plugin; mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
@@ -38,7 +41,6 @@ node {
         }
     }
     stage('Build - snapshot') {
-        sharedLib.purge()
         sharedLib.build()
     }
     stage('Integration test - snapshot') {

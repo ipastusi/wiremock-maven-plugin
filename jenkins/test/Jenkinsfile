@@ -5,9 +5,9 @@ def sharedLib = new SharedLib()
 node {
     stage('Prepare') {
         sharedLib.prepare()
+        sharedLib.purge()
     }
     stage('Build') {
-        sharedLib.purge()
         sharedLib.build()
     }
     stage('Integration test') {

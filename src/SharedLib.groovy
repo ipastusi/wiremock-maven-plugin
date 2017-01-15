@@ -6,9 +6,12 @@ def prepare() {
 }
 
 def purge() {
-    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-        sh 'mvn -pl plugin dependency:purge-local-repository -DresolutionFuzziness=groupId -Dinclude=uk.co.deliverymind -DactTransitively=false -DreResolve=false -Dverbose=true'
-    }
+    sh 'rm -rf ~/.m2/repository/uk/co/deliverymind/'
+
+//    does not work correctly in all cases
+//    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
+//        sh 'mvn -pl plugin dependency:purge-local-repository -DresolutionFuzziness=groupId -Dinclude=uk.co.deliverymind -DactTransitively=false -DreResolve=false -Dverbose=true'
+//    }
 }
 
 def build() {

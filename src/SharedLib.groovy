@@ -26,3 +26,33 @@ def runITs() {
         sh "mvn -pl plugin-it clean verify"
     }
 }
+
+def tag() {
+    sh "git tag ${RELEASE_VERSION}"
+}
+
+def release() {
+    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
+        sh "(cd plugin; mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE})"
+    }
+}
+
+def commitReleaseVersion() {
+    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
+        sh "(cd plugin; mvn versions:set -DnewVersion=${RELEASE_VERSION})"
+        sh "git add -A; git commit -m 'Release version bump'"
+    }
+}
+
+def commitSnapshotVersion() {
+    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
+        sh "(cd plugin; mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
+        sh "git add -A; git commit -m 'Post-release version bump'"
+    }
+}
+
+def push() {
+    sshagent(["${GIT_CREDENTIALS_ID}"]) {
+        sh "git push --set-upstream origin master; git push --tags"
+    }
+}

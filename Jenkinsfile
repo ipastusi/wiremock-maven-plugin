@@ -2,6 +2,10 @@
 
 pipeline {
     agent any
+    tools {
+        maven 'M3'
+        jdk 'jdk8'
+    }
     stages {
         stage('Purge') {
             steps {
@@ -15,25 +19,19 @@ pipeline {
                 }
             }
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin; mvn versions:set -DnewVersion=${RELEASE_VERSION})"
-                    sh "git add -A; git commit -m 'Release version bump'"
-                }
+                sh "(cd plugin; mvn versions:set -DnewVersion=${RELEASE_VERSION})"
+                sh "git add -A; git commit -m 'Release version bump'"
             }
         }
         stage('Build') {
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin; mvn clean install)"
-                }
+                sh "(cd plugin; mvn clean install)"
             }
         }
         stage('Integration test') {
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin-it; mvn clean verify)"
-                    sh "mvn -pl plugin-it clean verify"
-                }
+                sh "(cd plugin-it; mvn clean verify)"
+                sh "mvn -pl plugin-it clean verify"
             }
         }
         stage('Tag release') {
@@ -53,9 +51,7 @@ pipeline {
                 }
             }
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin; mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE})"
-                }
+                sh "(cd plugin; mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE})"
             }
         }
         stage('Purge - snapshot') {
@@ -75,10 +71,8 @@ pipeline {
                 }
             }
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin; mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
-                    sh "git add -A; git commit -m 'Post-release version bump'"
-                }
+                sh "(cd plugin; mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
+                sh "git add -A; git commit -m 'Post-release version bump'"
             }
         }
         stage('Build - snapshot') {
@@ -88,9 +82,7 @@ pipeline {
                 }
             }
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin; mvn clean install)"
-                }
+                sh "(cd plugin; mvn clean install)"
             }
         }
         stage('Integration test - snapshot') {
@@ -100,10 +92,8 @@ pipeline {
                 }
             }
             steps {
-                withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-                    sh "(cd plugin-it; mvn clean verify)"
-                    sh "mvn -pl plugin-it clean verify"
-                }
+                sh "(cd plugin-it; mvn clean verify)"
+                sh "mvn -pl plugin-it clean verify"
             }
         }
         stage('Push release to origin/master') {

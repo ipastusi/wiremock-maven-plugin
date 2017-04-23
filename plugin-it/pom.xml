@@ -27,6 +27,9 @@
                   </goals>
                   <configuration>
                      <dir>target/classes</dir>
+                     <extensions>
+                        <extension>uk.co.deliverymind.wiremock.maven.plugin.SampleResponseTransformer</extension>
+                     </extensions>
                      <params>--port=8081</params>
                   </configuration>
                </execution>
@@ -49,5 +52,13 @@
 
       </plugins>
    </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.github.tomakehurst</groupId>
+         <artifactId>wiremock</artifactId>
+         <version>2.5.0</version>
+      </dependency>
+   </dependencies>
 
 </project>

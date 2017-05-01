@@ -1,11 +1,19 @@
 package uk.co.deliverymind.wiremock.maven.plugin;
 
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import java.io.File;
+import java.util.List;
 
 abstract public class ConfigurationMojo extends AbstractMojo {
+
+    @Parameter(defaultValue = "${plugin}", required = true, readonly = true)
+    private PluginDescriptor descriptor;
+
+    @Parameter(property = "project.testClasspathElements", required = true, readonly = true)
+    private List<String> classpathElements;
 
     /**
      * Set the root directory (<i>--root-dir</i>), under which <i>mappings</i> and <i>__files</i> reside.
@@ -25,5 +33,13 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     protected String[] getAllParams() {
         String allParams = String.format("%s%s %s", "--root-dir=", dir, params);
         return allParams.split(" ");
+    }
+
+    protected PluginDescriptor getDescriptor() {
+        return descriptor;
+    }
+
+    protected List<String> getClasspathElements() {
+        return classpathElements;
     }
 }

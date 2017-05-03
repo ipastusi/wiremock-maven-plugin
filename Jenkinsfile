@@ -46,6 +46,12 @@ def cleanupWorkspace() {
     step([$class: 'WsCleanup'])
 }
 
+def cloneGitRepo() {
+    sshagent(["${GIT_CREDENTIALS_ID}"]) {
+        sh "git clone ${REPO_URL} ."
+    }
+}
+
 def isNotTestOnly() {
     "${TEST_ONLY}" == "false"
 }
@@ -62,8 +68,19 @@ pipeline {
     }
     options {
         timestamps()
+        skipDefaultCheckout()
     }
     stages {
+        stage('Cleanup') {
+            steps {
+                cleanupWorkspace()
+            }
+        }
+        stage('Clone') {
+            steps {
+                cloneGitRepo()
+            }
+        }
         stage('Purge') {
             steps {
                 purge()
@@ -151,7 +168,7 @@ pipeline {
                 runExtITs()
             }
         }
-        stage('Push release to origin/master') {
+        stage('Push release to origin') {
             when {
                 expression {
                     isNotDryRunOnly()
@@ -159,11 +176,6 @@ pipeline {
             }
             steps {
                 push()
-            }
-        }
-        stage('Cleanup') {
-            steps {
-                cleanupWorkspace()
             }
         }
     }

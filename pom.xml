@@ -12,6 +12,7 @@
    <modules>
       <module>plugin</module>
       <module>plugin-it</module>
+      <module>plugin-ext-it</module>
    </modules>
 
 </project>

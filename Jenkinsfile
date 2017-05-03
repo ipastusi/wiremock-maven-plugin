@@ -13,9 +13,14 @@ def install() {
     sh "(cd plugin; mvn clean install)"
 }
 
-def runITs() {
+def runCoreITs() {
     sh "(cd plugin-it; mvn clean verify)"
     sh "mvn -pl plugin-it clean verify"
+}
+
+def runExtITs() {
+    sh "(cd plugin-ext-it; mvn clean verify)"
+    sh "mvn -pl plugin-ext-it clean verify"
 }
 
 def tagRelease() {
@@ -81,7 +86,8 @@ pipeline {
         }
         stage('Integration test') {
             steps {
-                runITs()
+                runCoreITs()
+                runExtITs()
             }
         }
         stage('Tag release') {
@@ -141,7 +147,8 @@ pipeline {
                 }
             }
             steps {
-                runITs()
+                runCoreITs()
+                runExtITs()
             }
         }
         stage('Push release to origin/master') {

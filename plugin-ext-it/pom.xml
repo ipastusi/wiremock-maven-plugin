@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
    <groupId>uk.co.deliverymind</groupId>
-   <artifactId>wiremock-maven-plugin-it</artifactId>
+   <artifactId>wiremock-maven-plugin-ext-it</artifactId>
    <version>1.0.0-SNAPSHOT</version>
-   <description>Core integration test</description>
+   <description>Integration test with WireMock extension-specific configuration</description>
    <modelVersion>4.0.0</modelVersion>
 
    <properties>
@@ -28,7 +28,7 @@
                   </goals>
                   <configuration>
                      <dir>target/classes</dir>
-                     <params>--port=8081</params>
+                     <params>--port=8081 --extensions=uk.co.deliverymind.wiremock.maven.plugin.SampleResponseTransformer</params>
                   </configuration>
                </execution>
             </executions>
@@ -50,5 +50,14 @@
 
       </plugins>
    </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.github.tomakehurst</groupId>
+         <artifactId>wiremock</artifactId>
+         <version>2.5.0</version>
+         <scope>provided</scope>
+      </dependency>
+   </dependencies>
 
 </project>

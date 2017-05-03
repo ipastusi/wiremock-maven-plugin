@@ -25,7 +25,7 @@ public class WireMockMojo extends ConfigurationMojo {
     private void addRuntimeDependenciesToClasspath() throws MojoExecutionException {
         ClassRealm realm = getDescriptor().getClassRealm();
 
-        for (String element: getClasspathElements()) {
+        for (String element : getClasspathElements()) {
             getLog().info(String.format("Adding %s to wiremock-maven-plugin classpath", element));
             File elementFile = new File(element);
             try {

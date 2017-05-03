@@ -25,7 +25,7 @@ src/main/resources/__files/
       <artifactId>wiremock-maven-plugin</artifactId>
       
       <!-- check maven central badge above for most recent released version number -->
-      <version>2.1.0</version>
+      <version>2.2.0</version>
       
       <executions>
          <execution>

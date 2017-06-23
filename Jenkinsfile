@@ -35,13 +35,8 @@ pipeline {
                 }
             }
             steps {
-                sh "(cd plugin; mvn versions:set -DnewVersion=${RELEASE_VERSION})"
+                sh "mvn versions:set -DnewVersion=${RELEASE_VERSION}"
                 sh "git add -A; git commit -m 'Release version bump'"
-            }
-        }
-        stage('Install') {
-            steps {
-                sh "(cd plugin; mvn clean install)"
             }
         }
         stage('Integration test') {
@@ -66,7 +61,7 @@ pipeline {
                 }
             }
             steps {
-                sh "(cd plugin; mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE})"
+                sh "mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE}"
             }
         }
         stage('Set snapshot version number') {
@@ -76,7 +71,7 @@ pipeline {
                 }
             }
             steps {
-                sh "(cd plugin; mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION})"
+                sh "mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION}"
                 sh "git add -A; git commit -m 'Post-release version bump'"
             }
         }

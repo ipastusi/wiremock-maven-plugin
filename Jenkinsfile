@@ -46,12 +46,7 @@ pipeline {
         }
         stage('Integration test') {
             steps {
-                // Test core functionality
-                sh "(cd plugin-it; mvn clean verify)"
-                sh "mvn -pl plugin-it clean verify"
-                // Test WireMock extension
-                sh "(cd plugin-ext-it; mvn clean verify)"
-                sh "mvn -pl plugin-ext-it clean verify"
+                sh "mvn clean verify"
             }
         }
         stage('Tag release') {

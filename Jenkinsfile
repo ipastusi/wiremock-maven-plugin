@@ -43,6 +43,11 @@ pipeline {
             steps {
                 sh "mvn clean verify"
             }
+            post {
+                always {
+                    jacoco execPattern: '**/jacoco.exec'
+                }
+            }
         }
         stage('Tag release') {
             when {

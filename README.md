@@ -44,7 +44,7 @@ src/main/resources/__files/
 </plugins>
 ```
 
-See WireMock [manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line options.
+See [WireMock manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line options.
 
 - Run your tests:
 

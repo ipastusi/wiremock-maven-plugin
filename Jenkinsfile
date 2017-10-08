@@ -66,7 +66,7 @@ pipeline {
                 }
             }
             steps {
-                sh "mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE}"
+                sh "mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE} -Dskip.integration.tests=true"
             }
         }
         stage('Set snapshot version number') {

@@ -37,6 +37,7 @@
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <skip.integration.tests>false</skip.integration.tests>
    </properties>
 
    <build>
@@ -78,6 +79,7 @@
                <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
                <settingsFile>src/it/settings.xml</settingsFile>
                <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+               <skipInvocation>${skip.integration.tests}</skipInvocation>
             </configuration>
             <executions>
                <execution>

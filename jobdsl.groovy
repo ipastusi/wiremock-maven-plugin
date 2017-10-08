@@ -2,7 +2,7 @@
 
 folder('wiremock-maven-plugin')
 
-def gitCreds = '11be7a79-8034-407b-8351-dbd1d3342c24'
+def gitCreds = 'github-creds'
 
 pipelineJob('wiremock-maven-plugin/build') {
     concurrentBuild(false)

@@ -30,6 +30,9 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     @Parameter(property = "params")
     private String params;
 
+    /**
+     * Set to <i>true</i> if (and only if) you want to keep the plugin running indefinitely.
+     */
     @Parameter(property = "keepRunning", defaultValue = "false")
     private String keepRunning;
 

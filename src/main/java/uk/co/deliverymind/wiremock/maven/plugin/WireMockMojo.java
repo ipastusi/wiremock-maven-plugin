@@ -20,6 +20,17 @@ public class WireMockMojo extends ConfigurationMojo {
         String wireMockParams = Arrays.toString(getAllParams()).replaceAll("[\\[\\]]", "").replaceAll(", ", " ");
         getLog().info("Starting WireMock with following params: " + wireMockParams);
         WireMockServerRunner.main(getAllParams());
+
+        if (shouldKeepRunning()) {
+            getLog().info("WireMock will keep running until interrupted manually...");
+            while(true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    getLog().error(e.getMessage());
+                }
+            }
+        }
     }
 
     private void addRuntimeDependenciesToClasspath() throws MojoExecutionException {

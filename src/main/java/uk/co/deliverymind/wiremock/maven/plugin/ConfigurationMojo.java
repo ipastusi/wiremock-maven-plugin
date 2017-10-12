@@ -30,16 +30,23 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     @Parameter(property = "params")
     private String params;
 
-    protected String[] getAllParams() {
+    @Parameter(property = "keepRunning", defaultValue = "false")
+    private String keepRunning;
+
+    boolean shouldKeepRunning() {
+        return keepRunning.equals("true");
+    }
+
+    String[] getAllParams() {
         String allParams = String.format("%s%s %s", "--root-dir=", dir, params);
         return allParams.split(" ");
     }
 
-    protected PluginDescriptor getDescriptor() {
+    PluginDescriptor getDescriptor() {
         return descriptor;
     }
 
-    protected List<String> getClasspathElements() {
+    List<String> getClasspathElements() {
         return classpathElements;
     }
 }

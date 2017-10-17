@@ -2,7 +2,9 @@
 
 [![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin)
 
-Ultra-lightweight, super-simple WireMock Maven Plugin. 
+Ultra-lightweight, super-simple WireMock Maven Plugin.
+ 
+Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. See [releases tab](https://github.com/deliverymind/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
 
 ## Quick start guide
 

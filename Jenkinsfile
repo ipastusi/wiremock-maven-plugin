@@ -2,6 +2,13 @@
 
 pipeline {
     agent any
+    parameters {
+        string(name: 'RELEASE_VERSION', defaultValue: '9.0.0', description: '')
+        string(name: 'POST_RELEASE_SNAPSHOT_VERSION', defaultValue: '9.0.1-SNAPSHOT', description: '')
+        string(name: 'TEST_ONLY', defaultValue: 'true', description: '')
+        string(name: 'DRY_RUN', defaultValue: 'true', description: '')
+        string(name: 'GPG_PASSPHRASE', defaultValue: '', description: '')
+    }
     tools {
         maven 'M3'
         jdk 'jdk8'
@@ -9,6 +16,7 @@ pipeline {
     options {
         timestamps()
         skipDefaultCheckout()
+        disableConcurrentBuilds()
     }
     stages {
         stage('Cleanup') {
@@ -18,8 +26,8 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sshagent(["${GIT_CREDENTIALS_ID}"]) {
-                    sh "git clone ${REPO_URL} ."
+                sshagent(['github-creds']) {
+                    sh 'git clone git@github.com:deliverymind/wiremock-maven-plugin.git .'
                 }
             }
         }
@@ -31,11 +39,11 @@ pipeline {
         stage('Set release version number') {
             when {
                 expression {
-                    "${TEST_ONLY}" == "false"
+                    "${params.TEST_ONLY}" == "false"
                 }
             }
             steps {
-                sh "mvn versions:set -DnewVersion=${RELEASE_VERSION}"
+                sh "mvn versions:set -DnewVersion=${params.RELEASE_VERSION}"
                 sh "git add -A; git commit -m 'Release version bump'"
             }
         }
@@ -52,17 +60,17 @@ pipeline {
         stage('Tag release') {
             when {
                 expression {
-                    "${TEST_ONLY}" == "false"
+                    "${params.TEST_ONLY}" == "false"
                 }
             }
             steps {
-                sh "git tag ${RELEASE_VERSION}"
+                sh "git tag ${params.RELEASE_VERSION}"
             }
         }
         stage('Release artefacts') {
             when {
                 expression {
-                    "${TEST_ONLY}" == "false" && "${DRY_RUN}" == "false"
+                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false"
                 }
             }
             steps {
@@ -72,7 +80,7 @@ pipeline {
         stage('Set snapshot version number') {
             when {
                 expression {
-                    "${TEST_ONLY}" == "false"
+                    "${params.TEST_ONLY}" == "false"
                 }
             }
             steps {
@@ -83,11 +91,11 @@ pipeline {
         stage('Push release to origin') {
             when {
                 expression {
-                    "${TEST_ONLY}" == "false" && "${DRY_RUN}" == "false"
+                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false"
                 }
             }
             steps {
-                sshagent(["${GIT_CREDENTIALS_ID}"]) {
+                sshagent(['github-creds']) {
                     sh "git push --set-upstream origin master; git push --tags"
                 }
             }

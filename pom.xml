@@ -100,13 +100,23 @@
             </configuration>
             <executions>
                <execution>
+                  <id>pre-unit-test</id>
+                  <phase>process-test-classes</phase>
+                  <goals>
+                     <goal>prepare-agent</goal>
+                  </goals>
+                  <configuration>
+                     <destFile>${project.build.directory}/jacoco-unit.exec</destFile>
+                  </configuration>
+               </execution>
+               <execution>
                   <id>pre-integration-test</id>
                   <phase>pre-integration-test</phase>
                   <goals>
                      <goal>prepare-agent</goal>
                   </goals>
                   <configuration>
-                     <destFile>${project.build.directory}/jacoco.exec</destFile>
+                     <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                      <propertyName>invoker.mavenOpts</propertyName>
                   </configuration>
                </execution>

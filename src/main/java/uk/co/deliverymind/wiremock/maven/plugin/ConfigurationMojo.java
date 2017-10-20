@@ -41,8 +41,7 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     }
 
     String[] getAllParams() {
-        String allParams = String.format("%s%s %s", "--root-dir=", dir, params);
-        return allParams.split(" ");
+        return Parameters.getAllParams(dir.toString(), params);
     }
 
     PluginDescriptor getDescriptor() {

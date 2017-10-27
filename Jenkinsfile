@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('Cleanup') {
             steps {
-                step([$class: 'WsCleanup'])
+                cleanWs()
             }
         }
         stage('Clone') {
@@ -70,7 +70,7 @@ pipeline {
         stage('Release artefacts') {
             when {
                 expression {
-                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false"
+                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false" && "${env.BRANCH_NAME}" == "master"
                 }
             }
             steps {
@@ -91,7 +91,7 @@ pipeline {
         stage('Push release to origin') {
             when {
                 expression {
-                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false"
+                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false" && "${env.BRANCH_NAME}" == "master"
                 }
             }
             steps {

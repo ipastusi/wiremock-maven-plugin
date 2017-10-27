@@ -27,7 +27,7 @@ pipeline {
         stage('Clone') {
             steps {
                 sshagent(['github-creds']) {
-                    sh 'git clone git@github.com:deliverymind/wiremock-maven-plugin.git .'
+                    git credentialsId: 'github-creds', url: 'git@github.com:deliverymind/wiremock-maven-plugin.git'
                 }
             }
         }

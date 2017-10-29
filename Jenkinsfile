@@ -1,7 +1,9 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {
+        label 'linux'
+    }
     parameters {
         string(name: 'RELEASE_VERSION', defaultValue: '9.0.0', description: '')
         string(name: 'POST_RELEASE_SNAPSHOT_VERSION', defaultValue: '9.0.1-SNAPSHOT', description: '')
@@ -33,7 +35,7 @@ pipeline {
         }
         stage('Purge') {
             steps {
-                sh 'rm -rf ~/.m2/repository/uk/co/deliverymind/'
+                sh 'rm -rf ~/.m2/repository/uk/co/deliverymind/wiremock-maven-plugin/'
             }
         }
         stage('Set release version number') {

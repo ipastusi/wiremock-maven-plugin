@@ -9,7 +9,6 @@ pipeline {
         string(name: 'POST_RELEASE_SNAPSHOT_VERSION', defaultValue: '9.0.1-SNAPSHOT', description: '')
         string(name: 'TEST_ONLY', defaultValue: 'true', description: '')
         string(name: 'DRY_RUN', defaultValue: 'true', description: '')
-        string(name: 'GPG_PASSPHRASE', defaultValue: '', description: '')
     }
     tools {
         maven 'M3'
@@ -51,7 +50,7 @@ pipeline {
         }
         stage('Integration test') {
             steps {
-                sh "mvn clean verify"
+                sh 'mvn clean verify'
             }
             post {
                 always {
@@ -76,7 +75,9 @@ pipeline {
                 }
             }
             steps {
-                sh "mvn clean deploy -P release -Dgpg.passphrase=${GPG_PASSPHRASE} -Dskip.integration.tests=true"
+                withCredentials([string(credentialsId: 'gpg-passphrase', variable: 'GPGPP')]) {
+                    sh "mvn clean deploy -P release -Dgpg.passphrase=${GPGPP} -Dskip.integration.tests=true"
+                }
             }
         }
         stage('Set snapshot version number') {

@@ -32,7 +32,7 @@ src/main/resources/__files/
                 </goals>
                    <configuration>
                       <dir>target/classes</dir>
-                      <params>--port=8081</params>
+                      <params>--port=8081 --verbose</params>
                    </configuration>
              </execution>
           </executions>
@@ -69,7 +69,7 @@ If you want to start and stop WireMock manually, but prefer Maven to download it
             <configuration>
                 <keepRunning>true</keepRunning>
                 <dir>target/classes</dir>
-                <params>--port=8081</params>
+                <params>--port=8081 --verbose</params>
             </configuration>
         </plugin>
     </plugins>

@@ -12,7 +12,6 @@ pipeline {
     }
     tools {
         maven 'M3'
-        jdk 'jdk8'
     }
     options {
         timestamps()

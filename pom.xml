@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-   <groupId>uk.co.deliverymind</groupId>
+   <groupId>uk.co.automatictester</groupId>
    <artifactId>wiremock-maven-plugin</artifactId>
    <version>2.11.1-SNAPSHOT</version>
    <modelVersion>4.0.0</modelVersion>
    <packaging>maven-plugin</packaging>
    <name>wiremock-maven-plugin</name>
    <description>WireMock Maven Plugin</description>
-   <url>https://github.com/deliverymind/wiremock-maven-plugin</url>
+   <url>https://github.com/automatictester/wiremock-maven-plugin</url>
 
    <licenses>
       <license>
@@ -21,16 +21,16 @@
 
    <developers>
       <developer>
-         <name>Irek Pastusiak</name>
-         <email>irek@deliverymind.co.uk</email>
-         <organizationUrl>https://github.com/deliverymind</organizationUrl>
+         <name>Ireneusz Pastusiak</name>
+         <email>ireneusz.pastusiak@gmail.com</email>
+         <organizationUrl>https://github.com/automatictester</organizationUrl>
       </developer>
    </developers>
 
    <scm>
-      <connection>scm:git:git@github.com:deliverymind/wiremock-maven-plugin.git</connection>
-      <developerConnection>scm:git:git@github.com:deliverymind/wiremock-maven-plugin.git</developerConnection>
-      <url>git@github.com:deliverymind/wiremock-maven-plugin.git</url>
+      <connection>scm:git:git@github.com:automatictester/wiremock-maven-plugin.git</connection>
+      <developerConnection>scm:git:git@github.com:automatictester/wiremock-maven-plugin.git</developerConnection>
+      <url>git@github.com:automatictester/wiremock-maven-plugin.git</url>
       <tag>HEAD</tag>
    </scm>
 

@@ -1,4 +1,4 @@
-package uk.co.deliverymind.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

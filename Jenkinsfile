@@ -27,13 +27,13 @@ pipeline {
         stage('Clone') {
             steps {
                 sshagent(['github-creds']) {
-                    git credentialsId: 'github-creds', url: 'git@github.com:deliverymind/wiremock-maven-plugin.git'
+                    git credentialsId: 'github-creds', url: 'git@github.com:automatictester/wiremock-maven-plugin.git'
                 }
             }
         }
         stage('Purge') {
             steps {
-                sh 'rm -rf ~/.m2/repository/uk/co/deliverymind/wiremock-maven-plugin/'
+                sh 'rm -rf ~/.m2/repository/uk/co/automatictester/wiremock-maven-plugin/'
             }
         }
         stage('Set release version number') {

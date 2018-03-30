@@ -1,4 +1,4 @@
-package uk.co.deliverymind.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;

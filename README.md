@@ -1,10 +1,10 @@
 # wiremock-maven-plugin
 
-[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.deliverymind/wiremock-maven-plugin)
+[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
 
 Ultra-lightweight, super-simple WireMock Maven Plugin.
  
-Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. See [releases tab](https://github.com/deliverymind/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
+Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. See [releases tab](https://github.com/automatictester/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
 
 ## Quick start guide
 
@@ -21,7 +21,7 @@ src/main/resources/__files/
 <build>
     <plugins>
        <plugin>
-          <groupId>uk.co.deliverymind</groupId>
+          <groupId>uk.co.automatictester</groupId>
           <artifactId>wiremock-maven-plugin</artifactId>          
           <version><!-- check maven central badge above for most recent released version number --></version>
           
@@ -50,7 +50,7 @@ See [WireMock manual](http://wiremock.org/docs/running-standalone/) for detailed
 
 Maven will copy your resources from `src/main/resources/` to `target/classes/`. Wiremock Maven Plugin will start WireMock on **localhost:8081** at **pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. When Maven process execution finishes, WireMock will be stopped as well.
 
-See [pom.xml](https://github.com/deliverymind/wiremock-maven-plugin/blob/master/src/it/core/pom.xml) for a simple example and [pom.xml](https://github.com/deliverymind/wiremock-maven-plugin/blob/master/src/it/ext/pom.xml) for an example with WireMock extension. 
+See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/core/pom.xml) for a simple example and [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/ext/pom.xml) for an example with WireMock extension.
 
 If you want to build most recent version locally:
 
@@ -62,7 +62,7 @@ If you want to start and stop WireMock manually, but prefer Maven to download it
 <build>
     <plugins>
         <plugin>
-            <groupId>uk.co.deliverymind</groupId>
+            <groupId>uk.co.automatictester</groupId>
             <artifactId>wiremock-maven-plugin</artifactId>
             <version><!-- check maven central badge above for most recent released version number --></version>
             

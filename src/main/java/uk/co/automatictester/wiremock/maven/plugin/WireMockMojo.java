@@ -1,4 +1,4 @@
-package uk.co.deliverymind.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -23,7 +23,7 @@ public class WireMockMojo extends ConfigurationMojo {
 
         if (shouldKeepRunning()) {
             getLog().info("WireMock will keep running until interrupted manually...");
-            while(true) {
+            while (true) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

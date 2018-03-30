@@ -1,4 +1,4 @@
-package uk.co.deliverymind.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import com.github.tomakehurst.wiremock.common.FileSource;
 import com.github.tomakehurst.wiremock.extension.Parameters;

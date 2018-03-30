@@ -1,4 +1,4 @@
-package uk.co.deliverymind.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;

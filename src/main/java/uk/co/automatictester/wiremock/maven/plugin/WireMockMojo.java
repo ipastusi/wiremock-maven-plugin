@@ -63,11 +63,15 @@ public class WireMockMojo extends ConfigurationMojo {
     private void keepRunningUntilInterrupted() {
         getLog().info("WireMock will keep running until interrupted manually...");
         while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                getLog().error(e.getMessage());
-            }
+            sleepForOneSecond();
+        }
+    }
+
+    private void sleepForOneSecond() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            getLog().error(e.getMessage());
         }
     }
 }

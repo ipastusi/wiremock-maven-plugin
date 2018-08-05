@@ -9,10 +9,11 @@ public class Parameters {
     private static final String ROOT_DIR_PARAM_PREFIX = "--root-dir=";
 
     public static List<String> getAllParams(String dir, String nonDirParams) {
+        List<String> dirParam = getDirParam(dir);
+        List<String> otherParams = getNonDirParams(nonDirParams);
         List<String> allParams = new ArrayList<>();
-        allParams.addAll(getDirParam(dir));
-        allParams.addAll(getNonDirParams(nonDirParams));
-
+        allParams.addAll(dirParam);
+        allParams.addAll(otherParams);
         return allParams;
     }
 
@@ -23,8 +24,7 @@ public class Parameters {
     }
 
     private static List<String> getNonDirParams(String nonDirParams) {
-        List<String> nonDirParamsAsList = getParamsFrom(nonDirParams);
-        return nonDirParamsAsList;
+        return getParamsFrom(nonDirParams);
     }
 
     private static List<String> getParamsFrom(String paramString) {

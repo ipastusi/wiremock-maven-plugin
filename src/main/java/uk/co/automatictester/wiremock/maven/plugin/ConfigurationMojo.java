@@ -41,7 +41,12 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     }
 
     String[] getAllParams() {
-        return Parameters.getAllParams(dir.toString(), params);
+        String directory = dir.toString();
+        if (params == null) {
+            return Parameters.getDirParam(directory).toArray(new String[]{});
+        } else {
+            return Parameters.getAllParams(directory, params).toArray(new String[]{});
+        }
     }
 
     PluginDescriptor getDescriptor() {

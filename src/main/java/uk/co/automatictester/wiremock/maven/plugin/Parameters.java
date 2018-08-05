@@ -6,19 +6,29 @@ import java.util.List;
 
 public class Parameters {
 
-    static String[] getAllParams(String dir, String params) {
+    private static final String ROOT_DIR_PARAM_PREFIX = "--root-dir=";
+
+    public static List<String> getAllParams(String dir, String nonDirParams) {
         List<String> allParams = new ArrayList<>();
-        allParams.add("--root-dir=" + dir);
+        allParams.addAll(getDirParam(dir));
+        allParams.addAll(getNonDirParams(nonDirParams));
 
-        if (params != null) {
-            List<String> paramsAsList = Arrays.asList(params.split(" "));
-            allParams.addAll(paramsAsList);
-        }
+        return allParams;
+    }
 
-        int paramCount = allParams.size();
-        String[] arraySize = new String[paramCount];
-        String[] allParamsAsArray = allParams.toArray(arraySize);
+    public static List<String> getDirParam(String dir) {
+        List<String> dirParam = new ArrayList<>();
+        dirParam.add(ROOT_DIR_PARAM_PREFIX + dir);
+        return dirParam;
+    }
 
-        return allParamsAsArray;
+    private static List<String> getNonDirParams(String nonDirParams) {
+        List<String> nonDirParamsAsList = getParamsFrom(nonDirParams);
+        return nonDirParamsAsList;
+    }
+
+    private static List<String> getParamsFrom(String paramString) {
+        String[] params = paramString.split(" ");
+        return Arrays.asList(params);
     }
 }

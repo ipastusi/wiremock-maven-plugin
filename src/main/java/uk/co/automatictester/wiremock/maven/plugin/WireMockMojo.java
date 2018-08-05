@@ -9,6 +9,8 @@ import org.codehaus.plexus.classworlds.realm.ClassRealm;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.Arrays;
 
 @Mojo(name = "run", defaultPhase = LifecyclePhase.PRE_INTEGRATION_TEST, requiresDependencyResolution = ResolutionScope.RUNTIME)
@@ -17,32 +19,54 @@ public class WireMockMojo extends ConfigurationMojo {
     public void execute() throws MojoExecutionException {
         addRuntimeDependenciesToClasspath();
 
-        String wireMockParams = Arrays.toString(getAllParams()).replaceAll("[\\[\\]]", "").replaceAll(", ", " ");
-        getLog().info("Starting WireMock with following params: " + wireMockParams);
-        WireMockServerRunner.main(getAllParams());
+        String[] rawWireMockParams = getAllParams();
+        String wireMockParams = getFormattedStringFrom(rawWireMockParams);
+
+        String startMessage = String.format("Starting WireMock with following params: %s", wireMockParams);
+        getLog().info(startMessage);
+        WireMockServerRunner.main(rawWireMockParams);
 
         if (shouldKeepRunning()) {
-            getLog().info("WireMock will keep running until interrupted manually...");
-            while (true) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    getLog().error(e.getMessage());
-                }
-            }
+            keepRunningUntilInterrupted();
         }
     }
 
     private void addRuntimeDependenciesToClasspath() throws MojoExecutionException {
         ClassRealm realm = getDescriptor().getClassRealm();
 
-        for (String element : getClasspathElements()) {
-            getLog().info(String.format("Adding %s to wiremock-maven-plugin classpath", element));
-            File elementFile = new File(element);
+        for (String classpathElement : getClasspathElements()) {
+            String message = String.format("Adding %s to wiremock-maven-plugin classpath", classpathElement);
+            getLog().info(message);
+            URL classpathElementUrl = getClasspathElementFrom(classpathElement);
+            realm.addURL(classpathElementUrl);
+        }
+    }
+
+    private URL getClasspathElementFrom(String classpathElement) throws MojoExecutionException {
+        File classpathElementFile = new File(classpathElement);
+        URI classpathElementUri = classpathElementFile.toURI();
+        return getClasspathElementFrom(classpathElementUri);
+    }
+
+    private URL getClasspathElementFrom(URI uri) throws MojoExecutionException {
+        try {
+            return uri.toURL();
+        } catch (MalformedURLException e) {
+            throw new MojoExecutionException("Malformed classpath URL", e);
+        }
+    }
+
+    private String getFormattedStringFrom(String[] array) {
+        return Arrays.toString(array).replaceAll("[\\[\\]]", "").replaceAll(", ", " ");
+    }
+
+    private void keepRunningUntilInterrupted() {
+        getLog().info("WireMock will keep running until interrupted manually...");
+        while (true) {
             try {
-                realm.addURL(elementFile.toURI().toURL());
-            } catch (MalformedURLException e) {
-                throw new MojoExecutionException("Malformed classpath URL", e);
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                getLog().error(e.getMessage());
             }
         }
     }

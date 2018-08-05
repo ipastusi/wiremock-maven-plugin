@@ -24,7 +24,7 @@ public class ParametersTest {
     public Object[][] allParamsTestData() {
         return new Object[][]{
                 {"target/classes", "--port=8081", new String[]{"--root-dir=target/classes", "--port=8081"}},
-                {"target/classes", "--port=8081 -v", new String[]{"--root-dir=target/classes", "--port=8081", "-v"}},
+                {"target/classes", "--port=8081 --extensions=uk.co.automatictester.wiremock.maven.plugin.SampleResponseTransformer -v", new String[]{"--root-dir=target/classes", "--port=8081", "--extensions=uk.co.automatictester.wiremock.maven.plugin.SampleResponseTransformer", "-v"}},
                 {"dir with spaces", "--port=8081", new String[]{"--root-dir=dir with spaces", "--port=8081"}}
         };
     }

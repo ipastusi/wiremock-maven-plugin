@@ -28,7 +28,6 @@
                   </goals>
                   <configuration>
                      <dir>target/classes</dir>
-                     <params>--port=8081</params>
                   </configuration>
                </execution>
             </executions>

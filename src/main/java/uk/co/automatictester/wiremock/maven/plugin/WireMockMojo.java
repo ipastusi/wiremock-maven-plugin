@@ -36,7 +36,7 @@ public class WireMockMojo extends ConfigurationMojo {
 
         for (String classpathElement : getClasspathElements()) {
             String message = String.format("Adding %s to wiremock-maven-plugin classpath", classpathElement);
-            getLog().info(message);
+            getLog().debug(message);
             URL classpathElementUrl = getClasspathElementFrom(classpathElement);
             realm.addURL(classpathElementUrl);
         }

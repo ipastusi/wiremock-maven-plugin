@@ -80,6 +80,7 @@
                <settingsFile>src/it/settings.xml</settingsFile>
                <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
                <skipInvocation>${skip.integration.tests}</skipInvocation>
+               <streamLogs>true</streamLogs>
             </configuration>
             <executions>
                <execution>

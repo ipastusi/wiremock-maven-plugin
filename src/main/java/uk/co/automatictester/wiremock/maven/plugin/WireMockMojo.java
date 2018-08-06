@@ -1,6 +1,5 @@
 package uk.co.automatictester.wiremock.maven.plugin;
 
-import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -24,7 +23,7 @@ public class WireMockMojo extends ConfigurationMojo {
 
         String startMessage = String.format("Starting WireMock with following params: %s", wireMockParams);
         getLog().info(startMessage);
-        WireMockServerRunner.main(rawWireMockParams);
+        WireMockServerRunnerWrapper.run(rawWireMockParams);
 
         if (shouldKeepRunning()) {
             keepRunningUntilInterrupted();

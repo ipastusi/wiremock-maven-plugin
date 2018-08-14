@@ -4,13 +4,15 @@ import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 
 public class WireMockServerRunnerWrapper {
 
-    private static WireMockServerRunner wireMockServerRunner = new WireMockServerRunner();
+    private WireMockServerRunnerWrapper() {}
+
+    private static WireMockServerRunner instance = new WireMockServerRunner();
 
     public static void run(String... params) {
-        wireMockServerRunner.run(params);
+        instance.run(params);
     }
 
     public static void stop() {
-        wireMockServerRunner.stop();
+        instance.stop();
     }
 }

@@ -10,10 +10,10 @@ import java.util.List;
 abstract public class ConfigurationMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${plugin}", required = true, readonly = true)
-    private PluginDescriptor descriptor;
+    protected PluginDescriptor descriptor;
 
     @Parameter(property = "project.testClasspathElements", required = true, readonly = true)
-    private List<String> classpathElements;
+    protected List<String> classpathElements;
 
     /**
      * Set the root directory (<i>--root-dir</i>), under which <i>mappings</i> and <i>__files</i> reside.
@@ -47,13 +47,5 @@ abstract public class ConfigurationMojo extends AbstractMojo {
         } else {
             return Parameters.getAllParams(directory, params).toArray(new String[]{});
         }
-    }
-
-    PluginDescriptor getDescriptor() {
-        return descriptor;
-    }
-
-    List<String> getClasspathElements() {
-        return classpathElements;
     }
 }

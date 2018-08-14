@@ -62,7 +62,7 @@
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1085130586">wiremock-maven-plugin</stringProp>
+                <stringProp name="-1085130586">wiremock-maven-plugin-a</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data_as_document</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>

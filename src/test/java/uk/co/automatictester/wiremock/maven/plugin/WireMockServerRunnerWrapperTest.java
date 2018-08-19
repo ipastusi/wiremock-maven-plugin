@@ -6,7 +6,10 @@ public class WireMockServerRunnerWrapperTest {
 
     @Test
     public void testRun() {
-        WireMockServerRunnerWrapper.run();
-        WireMockServerRunnerWrapper.stop();
+        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        wireMock.run();
+        wireMock.stop();
+        wireMock.run();
+        wireMock.stop();
     }
 }

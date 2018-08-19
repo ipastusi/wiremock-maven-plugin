@@ -8,6 +8,7 @@ public class WireMockTerminatorMojo extends ConfigurationMojo {
 
     public void execute() {
         getLog().info("Stopping WireMock...");
-        WireMockServerRunnerWrapper.stop();
+        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        wireMock.stop();
     }
 }

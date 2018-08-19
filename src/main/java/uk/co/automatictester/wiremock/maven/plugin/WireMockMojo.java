@@ -18,7 +18,8 @@ public class WireMockMojo extends ConfigurationMojo {
 
         String startMessage = String.format("Starting WireMock with following params: %s", wireMockParams);
         getLog().info(startMessage);
-        WireMockServerRunnerWrapper.run(rawWireMockParams);
+        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        wireMock.run(rawWireMockParams);
 
         if (shouldKeepRunning()) {
             keepRunningUntilInterrupted();

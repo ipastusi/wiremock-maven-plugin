@@ -1,4 +1,4 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.util;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
@@ -12,26 +12,25 @@ import java.net.URI;
 import java.net.URL;
 import java.util.List;
 
-public class ClasspathAdmin {
+public class ClasspathUtil {
 
     private PluginDescriptor descriptor;
     private List<String> classpathElements;
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    void setDescriptor(PluginDescriptor pluginDescriptor) {
+    public void setDescriptor(PluginDescriptor pluginDescriptor) {
         this.descriptor = pluginDescriptor;
     }
 
-    void setClasspathElements(List<String> classpathElements) {
+    public void setClasspathElements(List<String> classpathElements) {
         this.classpathElements = classpathElements;
     }
 
-    void addRuntimeDependenciesToClasspath() throws MojoExecutionException {
+    public void addRuntimeDependenciesToClasspath() throws MojoExecutionException {
         ClassRealm realm = descriptor.getClassRealm();
 
         for (String classpathElement : classpathElements) {
-            String message = String.format("Adding %s to wiremock-maven-plugin classpath", classpathElement);
-            log.debug(message);
+            log.debug("Adding {} to wiremock-maven-plugin classpath", classpathElement);
             URL classpathElementUrl = getClasspathElementFrom(classpathElement);
             realm.addURL(classpathElementUrl);
         }

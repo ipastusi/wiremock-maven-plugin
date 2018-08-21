@@ -2,21 +2,22 @@ package uk.co.automatictester.wiremock.maven.plugin;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import uk.co.automatictester.wiremock.maven.plugin.util.ParameterUtil;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ParametersTest {
+public class ParameterUtilTest {
 
     @Test(dataProvider = "allParams")
     public void testGetAllParams(Object dir, Object params, Object expectedParams) {
-        String[] allParams = Parameters.getAllParams((String) dir, (String) params).toArray(new String[]{});
+        String[] allParams = ParameterUtil.getAllParams((String) dir, (String) params);
         assertThat(allParams, equalTo(expectedParams));
     }
 
     @Test(dataProvider = "dirParam")
     public void testGetDirParam(Object dir, Object expectedParams) {
-        String[] allParams = Parameters.getDirParam((String) dir).toArray(new String[]{});
+        String[] allParams = ParameterUtil.getDirParam((String) dir);
         assertThat(allParams, equalTo(expectedParams));
     }
 

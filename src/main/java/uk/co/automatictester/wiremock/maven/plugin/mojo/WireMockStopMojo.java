@@ -1,14 +1,15 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.mojo;
 
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+import uk.co.automatictester.wiremock.maven.plugin.server.WireMockServer;
 
 @Mojo(name = "stop", defaultPhase = LifecyclePhase.POST_INTEGRATION_TEST)
-public class WireMockTerminatorMojo extends ConfigurationMojo {
+public class WireMockStopMojo extends ConfigurationMojo {
 
     public void execute() {
         getLog().info("Stopping WireMock...");
-        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        WireMockServer wireMock = WireMockServer.getInstance();
         wireMock.stop();
     }
 }

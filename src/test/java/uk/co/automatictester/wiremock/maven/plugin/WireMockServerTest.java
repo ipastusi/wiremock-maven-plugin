@@ -1,12 +1,13 @@
 package uk.co.automatictester.wiremock.maven.plugin;
 
 import org.testng.annotations.Test;
+import uk.co.automatictester.wiremock.maven.plugin.server.WireMockServer;
 
-public class WireMockServerRunnerWrapperTest {
+public class WireMockServerTest {
 
     @Test
     public void testRun() {
-        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        WireMockServer wireMock = WireMockServer.getInstance();
         wireMock.run();
         wireMock.stop();
         wireMock.run();

@@ -1,26 +1,26 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Parameters {
+public class ParameterUtil {
 
     private static final String ROOT_DIR_PARAM_PREFIX = "--root-dir=";
 
-    public static List<String> getAllParams(String dir, String nonDirParams) {
-        List<String> dirParam = getDirParam(dir);
+    public static String[] getAllParams(String dir, String nonDirParams) {
+        List<String> dirParam = Arrays.asList(getDirParam(dir));
         List<String> otherParams = getNonDirParams(nonDirParams);
         List<String> allParams = new ArrayList<>();
         allParams.addAll(dirParam);
         allParams.addAll(otherParams);
-        return allParams;
+        return allParams.toArray(new String[]{});
     }
 
-    public static List<String> getDirParam(String dir) {
+    public static String[] getDirParam(String dir) {
         List<String> dirParam = new ArrayList<>();
         dirParam.add(ROOT_DIR_PARAM_PREFIX + dir);
-        return dirParam;
+        return dirParam.toArray(new String[]{});
     }
 
     private static List<String> getNonDirParams(String nonDirParams) {

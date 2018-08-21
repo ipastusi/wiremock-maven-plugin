@@ -1,19 +1,20 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.mojo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Parameter;
+import uk.co.automatictester.wiremock.maven.plugin.util.ParameterUtil;
 
 import java.io.File;
 import java.util.List;
 
-abstract public class ConfigurationMojo extends AbstractMojo {
+abstract class ConfigurationMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${plugin}", required = true, readonly = true)
-    protected PluginDescriptor descriptor;
+    PluginDescriptor descriptor;
 
     @Parameter(property = "project.testClasspathElements", required = true, readonly = true)
-    protected List<String> classpathElements;
+    List<String> classpathElements;
 
     /**
      * Set the root directory (<i>--root-dir</i>), under which <i>mappings</i> and <i>__files</i> reside.
@@ -43,9 +44,9 @@ abstract public class ConfigurationMojo extends AbstractMojo {
     String[] getAllParams() {
         String directory = dir.toString();
         if (params == null) {
-            return Parameters.getDirParam(directory).toArray(new String[]{});
+            return ParameterUtil.getDirParam(directory);
         } else {
-            return Parameters.getAllParams(directory, params).toArray(new String[]{});
+            return ParameterUtil.getAllParams(directory, params);
         }
     }
 }

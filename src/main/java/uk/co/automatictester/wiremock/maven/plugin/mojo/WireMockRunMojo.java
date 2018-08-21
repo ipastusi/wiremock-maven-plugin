@@ -1,14 +1,16 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.mojo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
+import uk.co.automatictester.wiremock.maven.plugin.server.WireMockServer;
+import uk.co.automatictester.wiremock.maven.plugin.util.ClasspathUtil;
 
 import java.util.Arrays;
 
 @Mojo(name = "run", defaultPhase = LifecyclePhase.PRE_INTEGRATION_TEST, requiresDependencyResolution = ResolutionScope.RUNTIME)
-public class WireMockMojo extends ConfigurationMojo {
+public class WireMockRunMojo extends ConfigurationMojo {
 
     public void execute() throws MojoExecutionException {
         addRuntimeDependenciesToClasspath();
@@ -18,7 +20,7 @@ public class WireMockMojo extends ConfigurationMojo {
 
         String startMessage = String.format("Starting WireMock with following params: %s", wireMockParams);
         getLog().info(startMessage);
-        WireMockServerRunnerWrapper wireMock = WireMockServerRunnerWrapper.getInstance();
+        WireMockServer wireMock = WireMockServer.getInstance();
         wireMock.run(rawWireMockParams);
 
         if (shouldKeepRunning()) {
@@ -27,10 +29,10 @@ public class WireMockMojo extends ConfigurationMojo {
     }
 
     private void addRuntimeDependenciesToClasspath() throws MojoExecutionException {
-        ClasspathAdmin classpathAdmin = new ClasspathAdmin();
-        classpathAdmin.setClasspathElements(classpathElements);
-        classpathAdmin.setDescriptor(descriptor);
-        classpathAdmin.addRuntimeDependenciesToClasspath();
+        ClasspathUtil classpathUtil = new ClasspathUtil();
+        classpathUtil.setClasspathElements(classpathElements);
+        classpathUtil.setDescriptor(descriptor);
+        classpathUtil.addRuntimeDependenciesToClasspath();
     }
 
     private String getFormattedStringFrom(String[] array) {

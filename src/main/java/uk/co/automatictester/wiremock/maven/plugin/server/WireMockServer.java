@@ -1,16 +1,16 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package uk.co.automatictester.wiremock.maven.plugin.server;
 
 import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 
-public class WireMockServerRunnerWrapper {
+public class WireMockServer {
 
-    private static final WireMockServerRunnerWrapper instance = new WireMockServerRunnerWrapper();
+    private static final WireMockServer instance = new WireMockServer();
     private static final WireMockServerRunner wireMock = new WireMockServerRunner();
 
-    private WireMockServerRunnerWrapper() {
+    private WireMockServer() {
     }
 
-    public static WireMockServerRunnerWrapper getInstance() {
+    public static WireMockServer getInstance() {
         return instance;
     }
 

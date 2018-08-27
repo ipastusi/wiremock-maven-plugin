@@ -8,9 +8,9 @@ public class WireMockServerTest {
     @Test
     public void testRun() {
         WireMockServer wireMock = WireMockServer.getInstance();
-        wireMock.run();
-        wireMock.stop();
-        wireMock.run();
-        wireMock.stop();
+        for (int i = 0; i < 2; i++) {
+            wireMock.run();
+            wireMock.stop();
+        }
     }
 }

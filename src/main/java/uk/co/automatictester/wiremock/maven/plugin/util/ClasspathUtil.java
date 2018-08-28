@@ -16,7 +16,7 @@ public class ClasspathUtil {
 
     private PluginDescriptor descriptor;
     private List<String> classpathElements;
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger log = LoggerFactory.getLogger(this.getClass());
 
     public void setDescriptor(PluginDescriptor pluginDescriptor) {
         this.descriptor = pluginDescriptor;

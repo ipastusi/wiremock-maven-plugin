@@ -12,6 +12,7 @@ import java.util.Arrays;
 @Mojo(name = "run", defaultPhase = LifecyclePhase.PRE_INTEGRATION_TEST, requiresDependencyResolution = ResolutionScope.RUNTIME)
 public class WireMockRunMojo extends ConfigurationMojo {
 
+    @Override
     public void execute() throws MojoExecutionException {
         addRuntimeDependenciesToClasspath();
 

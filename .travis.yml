@@ -1,0 +1,4 @@
+os: osx
+language: java
+install: true
+script: mvn clean verify

@@ -57,20 +57,28 @@
                   <goals>
                      <goal>prepare-agent</goal>
                   </goals>
-                  <configuration>
-                     <destFile>${project.build.directory}/jacoco-unit.exec</destFile>
-                  </configuration>
                </execution>
                <execution>
                   <id>pre-integration-test</id>
                   <phase>pre-integration-test</phase>
                   <goals>
-                     <goal>prepare-agent</goal>
+                     <goal>prepare-agent-integration</goal>
                   </goals>
                   <configuration>
-                     <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                      <propertyName>invoker.mavenOpts</propertyName>
                   </configuration>
+               </execution>
+               <execution>
+                  <id>default-report</id>
+                  <goals>
+                     <goal>report</goal>
+                  </goals>
+               </execution>
+               <execution>
+                  <id>default-report-integration</id>
+                  <goals>
+                     <goal>report-integration</goal>
+                  </goals>
                </execution>
             </executions>
          </plugin>
@@ -170,6 +178,7 @@
    </build>
 
    <profiles>
+
       <profile>
          <id>release</id>
          <build>
@@ -227,6 +236,7 @@
             </plugins>
          </build>
       </profile>
+
    </profiles>
 
    <dependencies>

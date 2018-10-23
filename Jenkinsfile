@@ -53,7 +53,7 @@ pipeline {
             }
             post {
                 always {
-                    jacoco execPattern: '**/jacoco-*.exec'
+                    jacoco execPattern: '**/jacoco*.exec'
                 }
             }
         }

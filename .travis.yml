@@ -2,3 +2,6 @@ os: osx
 language: java
 install: true
 script: mvn clean verify
+cache:
+  directories:
+  - $HOME/.m2

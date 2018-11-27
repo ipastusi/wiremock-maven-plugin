@@ -10,9 +10,6 @@ pipeline {
         string(name: 'TEST_ONLY', defaultValue: 'true', description: '')
         string(name: 'DRY_RUN', defaultValue: 'true', description: '')
     }
-    tools {
-        maven 'M3'
-    }
     options {
         timestamps()
         skipDefaultCheckout()

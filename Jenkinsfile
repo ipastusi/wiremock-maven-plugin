@@ -43,13 +43,13 @@ pipeline {
                 }
             }
             steps {
-                sh "mvn versions:set -DnewVersion=${params.RELEASE_VERSION}"
+                sh "./mvnw versions:set -DnewVersion=${params.RELEASE_VERSION}"
                 sh "git add -A; git commit -m 'Release version bump'"
             }
         }
         stage('Integration test') {
             steps {
-                sh 'mvn clean verify'
+                sh './mvnw clean verify'
             }
             post {
                 always {
@@ -75,7 +75,7 @@ pipeline {
             }
             steps {
                 withCredentials([string(credentialsId: 'gpg-passphrase', variable: 'GPGPP')]) {
-                    sh "mvn clean deploy -P release -Dgpg.passphrase=${GPGPP} -Dskip.integration.tests=true"
+                    sh "./mvnw clean deploy -P release -Dgpg.passphrase=${GPGPP} -Dskip.integration.tests=true"
                 }
             }
         }
@@ -86,7 +86,7 @@ pipeline {
                 }
             }
             steps {
-                sh "mvn versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION}"
+                sh "./mvnw versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION}"
                 sh "git add -A; git commit -m 'Post-release version bump'"
             }
         }

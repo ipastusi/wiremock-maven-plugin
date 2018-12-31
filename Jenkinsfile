@@ -7,8 +7,7 @@ pipeline {
     parameters {
         string(name: 'RELEASE_VERSION', defaultValue: '9.0.0', description: '')
         string(name: 'POST_RELEASE_SNAPSHOT_VERSION', defaultValue: '9.0.1-SNAPSHOT', description: '')
-        string(name: 'TEST_ONLY', defaultValue: 'true', description: '')
-        string(name: 'DRY_RUN', defaultValue: 'true', description: '')
+        booleanParam(name: 'RELEASE', defaultValue: false, description: '')
     }
     options {
         timestamps()
@@ -35,11 +34,6 @@ pipeline {
             }
         }
         stage('Set release version number') {
-            when {
-                expression {
-                    "${params.TEST_ONLY}" == "false"
-                }
-            }
             steps {
                 sh "./mvnw versions:set -DnewVersion=${params.RELEASE_VERSION}"
                 sh "git add -A; git commit -m 'Release version bump'"
@@ -56,11 +50,6 @@ pipeline {
             }
         }
         stage('Tag release') {
-            when {
-                expression {
-                    "${params.TEST_ONLY}" == "false"
-                }
-            }
             steps {
                 sh "git tag ${params.RELEASE_VERSION}"
             }
@@ -68,7 +57,7 @@ pipeline {
         stage('Release artefacts') {
             when {
                 expression {
-                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false" && "${env.BRANCH_NAME}" == "master"
+                    "${params.RELEASE}".toBoolean() && "${env.BRANCH_NAME}" == "master"
                 }
             }
             steps {
@@ -78,11 +67,6 @@ pipeline {
             }
         }
         stage('Set snapshot version number') {
-            when {
-                expression {
-                    "${params.TEST_ONLY}" == "false"
-                }
-            }
             steps {
                 sh "./mvnw versions:set -DnewVersion=${POST_RELEASE_SNAPSHOT_VERSION}"
                 sh "git add -A; git commit -m 'Post-release version bump'"
@@ -91,7 +75,7 @@ pipeline {
         stage('Push release to origin') {
             when {
                 expression {
-                    "${params.TEST_ONLY}" == "false" && "${params.DRY_RUN}" == "false" && "${env.BRANCH_NAME}" == "master"
+                    "${params.RELEASE}".toBoolean() && "${env.BRANCH_NAME}" == "master"
                 }
             }
             steps {

@@ -62,7 +62,7 @@ pipeline {
             }
             steps {
                 withCredentials([string(credentialsId: 'gpg-passphrase', variable: 'GPGPP')]) {
-                    sh "./mvnw clean deploy -P release -Dgpg.passphrase=${GPGPP} -DskipTests -Dskip.integration.tests=true"
+                    sh "GPG_TTY=\$(tty) ./mvnw clean deploy -P release -Dgpg.passphrase=${GPGPP} -DskipTests -Dskip.integration.tests=true"
                 }
             }
         }

@@ -168,6 +168,13 @@
                <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-enforcer-plugin</artifactId>
+                  <dependencies>
+                     <dependency>
+                        <groupId>uk.co.automatictester</groupId>
+                        <artifactId>enforcer-rules</artifactId>
+                        <version>1.0.0</version>
+                     </dependency>
+                  </dependencies>
                   <executions>
                      <execution>
                         <id>enforce-release</id>
@@ -176,7 +183,9 @@
                         </goals>
                         <configuration>
                            <rules>
-                              <requireReleaseVersion/>
+                              <requireVersionPattern implementation="uk.co.automatictester.enforcer.rules.RequireVersionPattern">
+                                 <versionPattern>^\d+\.\d+\.\d+$</versionPattern>
+                              </requireVersionPattern>
                            </rules>
                         </configuration>
                      </execution>

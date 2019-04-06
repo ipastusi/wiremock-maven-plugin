@@ -39,6 +39,7 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <skip.integration.tests>false</skip.integration.tests>
       <wiremock.version>2.22.0</wiremock.version>
+      <jackson.version>2.9.8</jackson.version>
    </properties>
 
    <build>
@@ -302,11 +303,6 @@
             <version>3.2.0</version>
          </dependency>
          <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.8.11</version>
-         </dependency>
-         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -318,13 +314,18 @@
          </dependency>
          <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.8.11.2</version>
+            <version>${jackson.version}</version>
          </dependency>
          <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.8.11</version>
+            <version>${jackson.version}</version>
          </dependency>
          <dependency>
             <groupId>org.apache.maven</groupId>

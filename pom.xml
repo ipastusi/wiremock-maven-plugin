@@ -48,7 +48,7 @@
          <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.7</version>
+            <version>1.6.8</version>
             <extensions>true</extensions>
             <configuration>
                <serverId>ossrh</serverId>
@@ -310,7 +310,7 @@
          <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
+            <version>3.8.1</version>
          </dependency>
          <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

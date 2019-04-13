@@ -10,7 +10,7 @@ See [releases tab](https://github.com/automatictester/wiremock-maven-plugin/rele
 
 ## Required Java version
 
-WireMock Maven Plugin is tested against a broad range of [Java versions](https://github.com/automatictester/wiremock-maven-plugin/blob/master/.travis.yml), from 7 to 11 inclusive.
+WireMock Maven Plugin is tested against a broad range of Java versions. See [Travis CI config](https://github.com/automatictester/wiremock-maven-plugin/blob/master/.travis.yml) for details.
 
 ## Quick start guide
 

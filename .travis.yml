@@ -2,7 +2,9 @@ os: linux
 dist: trusty
 language: java
 install: true
-jdk: openjdk7
+jdk:
+  - openjdk7
+  - openjdk8
 cache:
   directories:
     - $HOME/.m2

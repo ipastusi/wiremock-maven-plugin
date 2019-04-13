@@ -8,6 +8,10 @@ Ultra-lightweight, super-simple WireMock Maven Plugin.
 Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. 
 See [releases tab](https://github.com/automatictester/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
 
+## Required Java version
+
+WireMock Maven Plugin is tested against a broad range of [Java versions](https://github.com/automatictester/wiremock-maven-plugin/blob/master/.travis.yml), from 7 to 11 inclusive.
+
 ## Quick start guide
 
 - Add your mock definitions to the following folders:

@@ -39,7 +39,7 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <skip.integration.tests>false</skip.integration.tests>
       <wiremock.version>2.23.2</wiremock.version>
-      <jackson.version>2.9.8</jackson.version>
+      <jackson.version>2.9.9</jackson.version>
    </properties>
 
    <build>

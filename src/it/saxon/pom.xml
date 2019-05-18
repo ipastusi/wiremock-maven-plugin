@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <groupId>uk.co.automatictester</groupId>
+   <artifactId>wiremock-maven-plugin-it</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+   <description>Core integration test</description>
+   <modelVersion>4.0.0</modelVersion>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   </properties>
+
+   <build>
+      <plugins>
+
+         <plugin>
+            <groupId>@project.groupId@</groupId>
+            <artifactId>@project.artifactId@</artifactId>
+            <version>@project.version@</version>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+                  <configuration>
+                     <dir>target/classes</dir>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>com.lazerycode.jmeter</groupId>
+            <artifactId>jmeter-maven-plugin</artifactId>
+            <version>2.1.0</version>
+            <executions>
+               <execution>
+                  <phase>integration-test</phase>
+                  <goals>
+                     <goal>jmeter</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>net.sourceforge.saxon</groupId>
+         <artifactId>saxon</artifactId>
+         <version>9.1.0.8</version>
+         <classifier>xpath</classifier>
+      </dependency>
+   </dependencies>
+
+</project>

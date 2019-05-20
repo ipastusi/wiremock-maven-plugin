@@ -11,6 +11,7 @@
    <name>wiremock-maven-plugin</name>
    <description>WireMock Maven Plugin</description>
    <url>https://github.com/automatictester/wiremock-maven-plugin</url>
+   <inceptionYear>2016</inceptionYear>
 
    <licenses>
       <license>

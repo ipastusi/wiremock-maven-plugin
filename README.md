@@ -1,7 +1,7 @@
 # wiremock-maven-plugin
 
 [![Build Status](https://travis-ci.com/automatictester/wiremock-maven-plugin.svg?branch=master)](https://travis-ci.com/automatictester/wiremock-maven-plugin)
-[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
+[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin) [![Join the chat at https://gitter.im/automatictester/wiremock-maven-plugin](https://badges.gitter.im/automatictester/wiremock-maven-plugin.svg)](https://gitter.im/automatictester/wiremock-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Ultra-lightweight, super-simple WireMock Maven Plugin.
  

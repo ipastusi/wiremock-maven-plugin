@@ -6,7 +6,8 @@ import java.util.List;
 
 public class ParameterUtil {
 
-    private ParameterUtil() {}
+    private ParameterUtil() {
+    }
 
     private static final String ROOT_DIR_PARAM_PREFIX = "--root-dir=";
 

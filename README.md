@@ -1,9 +1,10 @@
-# wiremock-maven-plugin
+# WireMock Maven Plugin
 
 [![Build Status](https://travis-ci.com/automatictester/wiremock-maven-plugin.svg?branch=master)](https://travis-ci.com/automatictester/wiremock-maven-plugin)
-[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin) [![Join the chat at https://gitter.im/automatictester/wiremock-maven-plugin](https://badges.gitter.im/automatictester/wiremock-maven-plugin.svg)](https://gitter.im/automatictester/wiremock-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
+[![Join the chat at https://gitter.im/automatictester/wiremock-maven-plugin](https://badges.gitter.im/automatictester/wiremock-maven-plugin.svg)](https://gitter.im/automatictester/wiremock-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Ultra-lightweight, super-simple WireMock Maven Plugin.
+Run WireMock as part of Maven lifecycle.
  
 Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. 
 See [releases tab](https://github.com/automatictester/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
@@ -55,12 +56,12 @@ See [WireMock manual](http://wiremock.org/docs/running-standalone/) for detailed
 
 `mvn clean verify`
 
-Maven will copy your resources from `src/main/resources/` to `target/classes/`. WireMock Maven Plugin will start WireMock on **localhost:8081** at 
-**pre-integration-test** phase and use your mock definitions. Your tests executed at **integration-test** phase will have mocks ready to use. 
+Maven will copy your resources from `src/main/resources/` to `target/classes/`. WireMock Maven Plugin will start WireMock on `localhost:8081` at 
+`pre-integration-test` phase and use your mock definitions. Your tests executed at `integration-test` phase will have mocks ready to use. 
 When Maven process execution finishes, WireMock will be stopped as well.
 
-You may want to stop WireMock Maven Plugin explicitly in **post-integration-test** phase instead of waiting for it to shut down at the end of Maven process execution.
-You can do that by adding **stop** goal to the configuration. See above code snippet as an example. This will help you avoid port conflicts in multi-module 
+You may want to stop WireMock Maven Plugin explicitly in `post-integration-test` phase instead of waiting for it to shut down at the end of Maven process execution.
+You can do that by adding `stop` goal to the configuration. See above code snippet as an example. This will help you avoid port conflicts in multi-module 
 Maven projects with more than one module using this plugin.
 
 See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/core/pom.xml) for a simple example and [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/ext/pom.xml) for an example with WireMock extension.

@@ -5,7 +5,7 @@
 
    <groupId>uk.co.automatictester</groupId>
    <artifactId>wiremock-maven-plugin</artifactId>
-   <version>4.5.0</version>
+   <version>4.5.1-SNAPSHOT</version>
    <modelVersion>4.0.0</modelVersion>
    <packaging>maven-plugin</packaging>
    <name>WireMock Maven Plugin</name>

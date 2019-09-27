@@ -5,9 +5,37 @@
 [![Join the chat at https://gitter.im/automatictester/wiremock-maven-plugin](https://badges.gitter.im/automatictester/wiremock-maven-plugin.svg)](https://gitter.im/automatictester/wiremock-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Run WireMock as part of Maven lifecycle.
- 
-Please note the above badge shows current version of WireMock Maven Plugin, **not** version of WireMock itself. 
-See [releases tab](https://github.com/automatictester/wiremock-maven-plugin/releases) for information which WireMock version is used by WireMock Maven Plugin.
+
+## What's new in version 5.0.0 and above
+
+Each version of WireMock Maven Plugin prior to version 5.0.0 was shipped bundled together with a particular version of WireMock itself. This resulted in 
+WireMock Maven Plugin having to be released after every release of WireMock itself. This introduced potential delay between when new WireMock version was 
+released, and when users of WireMock Maven Plugin could benefit from it. For this reason, WireMock Maven Plugin version 5.0.0 and above come decoupled from WireMock 
+itself. It is up to the users to explicitly decide which WireMock version they intend to use.
+
+You can do this by specifying WireMock dependency on WireMock Maven Plugin level:
+
+```
+<build>
+    <plugins>
+       <plugin>
+          <groupId>uk.co.automatictester</groupId>
+          <artifactId>wiremock-maven-plugin</artifactId>          
+          <version>5.0.0</version>
+          
+          [...]
+          
+          <dependencies>
+             <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock</artifactId>
+                <version>2.24.1</version>
+             </dependency>
+          </dependencies>          
+       </plugin>   
+    </plugins>
+</build>
+```
 
 ## Required Java version
 
@@ -30,7 +58,7 @@ src/main/resources/__files/
        <plugin>
           <groupId>uk.co.automatictester</groupId>
           <artifactId>wiremock-maven-plugin</artifactId>          
-          <version> <!-- check maven central badge above for most recent released version number --> </version>
+          <version><!-- wiremock-maven-plugin version - check maven central badge above for most recent released version number --></version>
           
           <executions>
              <execution>
@@ -38,13 +66,19 @@ src/main/resources/__files/
                    <goal>run</goal>
                    <goal>stop</goal> <!-- important in multi-module project where more than one module uses this plugin -->
                 </goals>
-                   <configuration>
-                      <dir>target/classes</dir>
-                      <params>--port=8081 --verbose</params>
-                   </configuration>
+                <configuration>
+                   <dir>target/classes</dir>
+                   <params>--port=8081 --verbose</params>
+                </configuration>
              </execution>
           </executions>
-          
+          <dependencies>
+             <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock</artifactId>
+                <version> <!-- wiremock version you want to use --> </version>
+             </dependency>
+          </dependencies>          
        </plugin>   
     </plugins>
 </build>
@@ -78,13 +112,21 @@ If you want to start and stop WireMock manually, but prefer Maven to download it
         <plugin>
             <groupId>uk.co.automatictester</groupId>
             <artifactId>wiremock-maven-plugin</artifactId>
-            <version><!-- check maven central badge above for most recent released version number --></version>
+            <version><!-- wiremock-maven-plugin version - check maven central badge above for most recent released version number --></version>
             
             <configuration>
                 <keepRunning>true</keepRunning>
                 <dir>target/classes</dir>
                 <params>--port=8081 --verbose</params>
             </configuration>
+            
+            <dependencies>
+               <dependency>
+                  <groupId>com.github.tomakehurst</groupId>
+                  <artifactId>wiremock</artifactId>
+                  <version> <!-- wiremock version you want to use --> </version>
+               </dependency>
+            </dependencies>            
         </plugin>
     </plugins>
 </build>

@@ -65,11 +65,11 @@ src/main/resources/__files/
                 <goals>
                    <goal>run</goal>
                    <goal>stop</goal> <!-- important in multi-module project where more than one module uses this plugin -->
-                   <skip>false</skip> <!-- set to true to skip plugin execution -->
                 </goals>
                 <configuration>
                    <dir>target/classes</dir>
                    <params>--port=8081 --verbose</params>
+                   <skip>false</skip> <!-- set to true to skip plugin execution -->
                 </configuration>
              </execution>
           </executions>

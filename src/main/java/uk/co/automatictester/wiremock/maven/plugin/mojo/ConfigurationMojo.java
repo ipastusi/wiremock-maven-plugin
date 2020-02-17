@@ -37,8 +37,18 @@ abstract class ConfigurationMojo extends AbstractMojo {
     @Parameter(property = "keepRunning", defaultValue = "false")
     private String keepRunning;
 
+    /**
+     * Set to <i>true</i> to skip plugin execution.
+     */
+    @Parameter(property = "skip", defaultValue = "false")
+    private String skip;
+
     boolean shouldKeepRunning() {
         return keepRunning.equals("true");
+    }
+
+    boolean shouldSkip() {
+        return skip.equals("true");
     }
 
     String[] getAllParams() {

@@ -14,6 +14,11 @@ public class WireMockRunMojo extends ConfigurationMojo {
 
     @Override
     public void execute() throws MojoExecutionException {
+        if (shouldSkip()) {
+            getLog().info("Requested to skip WireMock Maven Plugin execution");
+            return;
+        }
+
         addRuntimeDependenciesToClasspath();
 
         String[] rawWireMockParams = getAllParams();

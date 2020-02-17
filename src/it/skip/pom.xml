@@ -28,7 +28,7 @@
                   </goals>
                   <configuration>
                      <dir>target/classes</dir>
-                     <skip>false</skip>
+                     <skip>true</skip>
                   </configuration>
                </execution>
             </executions>

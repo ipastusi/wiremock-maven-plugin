@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
    <groupId>uk.co.automatictester</groupId>
-   <artifactId>wiremock-maven-plugin-it</artifactId>
+   <artifactId>wiremock-maven-plugin-skip-it</artifactId>
    <version>1.0.0-SNAPSHOT</version>
-   <description>Core integration test</description>
+   <description>Integration test for skip functionality</description>
    <modelVersion>4.0.0</modelVersion>
 
    <properties>

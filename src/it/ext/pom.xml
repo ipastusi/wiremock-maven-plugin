@@ -14,7 +14,7 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
-      <wiremock.version>2.26.3</wiremock.version>
+      <wiremock.version>2.27.2</wiremock.version>
    </properties>
 
    <build>
@@ -47,7 +47,7 @@
          <plugin>
             <groupId>com.lazerycode.jmeter</groupId>
             <artifactId>jmeter-maven-plugin</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.2</version>
             <executions>
                <execution>
                   <id>configuration</id>

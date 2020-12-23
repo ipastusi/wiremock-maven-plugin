@@ -20,7 +20,7 @@ abstract class ConfigurationMojo extends AbstractMojo {
      * Set the root directory (<i>--root-dir</i>), under which <i>mappings</i> and <i>__files</i> reside.
      * This defaults to: <i>target/classes</i>
      */
-    @Parameter(property = "dir", defaultValue = "target/classes")
+    @Parameter(property = "wiremock.dir", defaultValue = "target/classes")
     private File dir;
 
     /**
@@ -28,19 +28,19 @@ abstract class ConfigurationMojo extends AbstractMojo {
      * <i>--port=8081 --verbose</i>
      * Do <b>NOT</b> specify <i>--root-dir</i> here.
      */
-    @Parameter(property = "params")
+    @Parameter(property = "wiremock.params")
     private String params;
 
     /**
      * Set to <i>true</i> if (and only if) you want to keep the plugin running indefinitely.
      */
-    @Parameter(property = "keepRunning", defaultValue = "false")
+    @Parameter(property = "wiremock.keepRunning", defaultValue = "false")
     private String keepRunning;
 
     /**
      * Set to <i>true</i> to skip plugin execution.
      */
-    @Parameter(property = "skip", defaultValue = "false")
+    @Parameter(property = "wiremock.skip", defaultValue = "false")
     private String skip;
 
     boolean shouldKeepRunning() {

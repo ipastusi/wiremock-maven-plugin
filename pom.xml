@@ -102,46 +102,6 @@
          </plugin>
 
          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.6</version>
-            <configuration>
-               <includes>**/*</includes>
-            </configuration>
-            <executions>
-               <execution>
-                  <id>pre-unit-test</id>
-                  <phase>process-test-classes</phase>
-                  <goals>
-                     <goal>prepare-agent</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>pre-integration-test</id>
-                  <phase>pre-integration-test</phase>
-                  <goals>
-                     <goal>prepare-agent-integration</goal>
-                  </goals>
-                  <configuration>
-                     <propertyName>invoker.mavenOpts</propertyName>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>default-report</id>
-                  <goals>
-                     <goal>report</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>default-report-integration</id>
-                  <goals>
-                     <goal>report-integration</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-
-         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-enforcer-plugin</artifactId>
             <version>3.0.0-M3</version>

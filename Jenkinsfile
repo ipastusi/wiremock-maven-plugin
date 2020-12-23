@@ -43,11 +43,6 @@ pipeline {
             steps {
                 sh './mvnw clean verify'
             }
-            post {
-                always {
-                    jacoco execPattern: '**/jacoco*.exec'
-                }
-            }
         }
         stage('Tag release') {
             steps {

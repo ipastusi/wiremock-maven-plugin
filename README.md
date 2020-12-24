@@ -15,7 +15,7 @@ itself. It is up to the users to explicitly decide which WireMock version they i
 
 You can do this by specifying WireMock dependency on WireMock Maven Plugin level:
 
-```
+```xml
 <build>
     <plugins>
        <plugin>
@@ -48,7 +48,7 @@ src/main/resources/__files/
 
 - Add this plugin to your **pom.xml**:
 
-```
+```xml
 <build>
     <plugins>
        <plugin>
@@ -105,7 +105,7 @@ example with WireMock extension.
 If you want to start and stop WireMock manually, but prefer Maven to download it for you, this is how you can configure
 your project:
 
-```
+```xml
 <build>
     <plugins>
         <plugin>

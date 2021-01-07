@@ -138,5 +138,4 @@ Now when you run it with `mvn clean compile wiremock:run`, you should see the fo
 
 ## Required Java version
 
-WireMock Maven Plugin is tested against a broad range of Java versions.
-See [Travis CI config](https://github.com/automatictester/wiremock-maven-plugin/blob/master/.travis.yml) for details.
+WireMock Maven Plugin is tested against Java versions 8 to 14.

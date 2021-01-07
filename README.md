@@ -1,6 +1,5 @@
 # WireMock Maven Plugin
 
-[![Build Status](https://travis-ci.com/automatictester/wiremock-maven-plugin.svg?branch=master)](https://travis-ci.com/automatictester/wiremock-maven-plugin)
 [![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
 
 Run WireMock as part of Maven lifecycle.

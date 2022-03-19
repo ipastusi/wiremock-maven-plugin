@@ -14,7 +14,7 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
-      <wiremock.version>2.27.2</wiremock.version>
+      <wiremock.version>2.32.0</wiremock.version>
    </properties>
 
    <build>
@@ -76,7 +76,7 @@
    <dependencies>
       <dependency>
          <groupId>com.github.tomakehurst</groupId>
-         <artifactId>wiremock</artifactId>
+         <artifactId>wiremock-jre8</artifactId>
          <version>${wiremock.version}</version>
          <scope>provided</scope>
       </dependency>

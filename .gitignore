@@ -2,3 +2,4 @@
 target/
 *.iml
 pom.xml.versionsBackup
+.java-version

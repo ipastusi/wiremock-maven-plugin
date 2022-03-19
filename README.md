@@ -1,6 +1,8 @@
 # WireMock Maven Plugin
 
 [![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
+[![Java](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/maven.yml)
+[![CodeQL](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml)
 
 Run WireMock as part of Maven lifecycle.
 

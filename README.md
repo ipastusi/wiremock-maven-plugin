@@ -136,6 +136,6 @@ Now when you run it with `mvn clean compile wiremock:run`, you should see the fo
 [INFO] WireMock will keep running until interrupted manually...
 ```
 
-## Required Java version
+## Supported Java versions
 
-WireMock Maven Plugin is tested against Java versions 8 to 14.
+Truststore Maven Plugin is tested against Java LTS versions 8, 11 and 17.

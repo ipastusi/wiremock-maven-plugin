@@ -27,7 +27,7 @@ You can do this by specifying WireMock dependency on WireMock Maven Plugin level
           <dependencies>
              <dependency>
                 <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock</artifactId>
+                <artifactId>wiremock-jre8</artifactId>
                 <version><!-- wiremock version you want to use --></version>
              </dependency>
           </dependencies>
@@ -71,7 +71,7 @@ src/main/resources/__files/
           <dependencies>
              <dependency>
                 <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock</artifactId>
+                <artifactId>wiremock-jre8</artifactId>
                 <version><!-- wiremock version you want to use --></version>
              </dependency>
           </dependencies>
@@ -121,7 +121,7 @@ your project:
             <dependencies>
                <dependency>
                   <groupId>com.github.tomakehurst</groupId>
-                  <artifactId>wiremock</artifactId>
+                  <artifactId>wiremock-jre8</artifactId>
                   <version><!-- wiremock version you want to use --></version>
                </dependency>
             </dependencies>

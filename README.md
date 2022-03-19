@@ -138,4 +138,4 @@ Now when you run it with `mvn clean compile wiremock:run`, you should see the fo
 
 ## Supported Java versions
 
-Truststore Maven Plugin is tested against Java LTS versions 8, 11 and 17.
+WireMock Maven Plugin is tested against Java LTS versions 8, 11 and 17.

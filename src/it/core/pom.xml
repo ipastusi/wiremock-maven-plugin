@@ -12,6 +12,8 @@
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
 
    <build>
@@ -42,32 +44,29 @@
          </plugin>
 
          <plugin>
-            <groupId>com.lazerycode.jmeter</groupId>
-            <artifactId>jmeter-maven-plugin</artifactId>
-            <version>3.5.0</version>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-maven-plugin</artifactId>
+            <version>4.2.9</version>
             <executions>
                <execution>
-                  <id>configuration</id>
                   <goals>
-                     <goal>configure</goal>
+                     <goal>test</goal>
                   </goals>
-               </execution>
-               <execution>
-                  <id>jmeter-tests</id>
-                  <goals>
-                     <goal>jmeter</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>jmeter-check-results</id>
-                  <goals>
-                     <goal>results</goal>
-                  </goals>
+                  <phase>verify</phase>
                </execution>
             </executions>
          </plugin>
 
       </plugins>
    </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>io.gatling.highcharts</groupId>
+         <artifactId>gatling-charts-highcharts</artifactId>
+         <version>3.9.0</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
 
 </project>

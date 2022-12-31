@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  shell: bash
+  git-credential-helper: yes
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - if [ "${RELEASE}" != "true" ] && [ "${RELEASE}" != "false" ]; then exit 1; fi
+      - echo '<settings><servers><server><id>ossrh</id><username>${env.OSSRH_USERNAME}</username><password>${env.OSSRH_PASSWORD}</password></server></servers></settings>' > ~/.m2/settings.xml
+      - echo "${GPG_KEY}" | base64 -d | gpg --no-tty --passphrase "${GPG_KEY_PASSPHRASE}" --pinentry-mode loopback --verbose --import
+      - git config --global user.email "buildlogic.ci@gmail.com"
+      - git config --global user.name "buildlogic-ci"
+      - git checkout master
+  build:
+    commands:
+      - mvn versions:set -DnewVersion="${RELEASE_VERSION}"
+      - git add -A; git commit -m 'Release version bump'
+      - mvn clean verify
+      - git tag "${RELEASE_VERSION}"
+      - if [ "${RELEASE}" = "true" ]; then mvn clean deploy -P release -Dgpg.passphrase="${GPG_KEY_PASSPHRASE}" -DskipTests -Dinvoker.skip=true; fi
+      - mvn versions:set -DnewVersion="${POST_RELEASE_SNAPSHOT_VERSION}"
+      - git add -A; git commit -m 'Post-release version bump'
+      - if [ "${RELEASE}" = "true" ]; then git push --set-upstream origin master; git push --tags; fi
+
+reports:
+  tests:
+    files:
+      - "**/junitreports/TEST-*.xml"
+    base-directory: target
+    file-format: JUNITXML

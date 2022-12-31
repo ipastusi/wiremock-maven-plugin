@@ -6,38 +6,6 @@
 
 Run WireMock as part of Maven lifecycle.
 
-## What's new in version 5.0.0 and above
-
-Each version of WireMock Maven Plugin prior to version 5.0.0 was shipped bundled together with a particular version of
-WireMock itself. This resulted in WireMock Maven Plugin having to be released after every release of WireMock itself.
-This introduced potential delay between when new WireMock version was released, and when users of WireMock Maven Plugin
-could benefit from it. For this reason, WireMock Maven Plugin version 5.0.0 and above come decoupled from WireMock
-itself. It is up to the users to explicitly decide which WireMock version they intend to use.
-
-You can do this by specifying WireMock dependency on WireMock Maven Plugin level:
-
-```xml
-<build>
-    <plugins>
-       <plugin>
-          <groupId>uk.co.automatictester</groupId>
-          <artifactId>wiremock-maven-plugin</artifactId>          
-          <version><!-- check above badge for most recent version of wiremock-maven-plugin --></version>
-          
-          [...]
-          
-          <dependencies>
-             <dependency>
-                <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock-jre8</artifactId>
-                <version><!-- wiremock version you want to use --></version>
-             </dependency>
-          </dependencies>
-       </plugin>   
-    </plugins>
-</build>
-```
-
 ## Quick start guide
 
 - Add your mock definitions to the following folders:

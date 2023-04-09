@@ -3,17 +3,36 @@ on: [ push ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.platform.os }}
+    timeout-minutes: 10
     strategy:
       matrix:
-        java: [ '8', '11', '17' ]
+        platform:
+          - name: linux-java8
+            os: ubuntu-latest
+            java: 8
+          - name: linux-java11
+            os: ubuntu-latest
+            java: 11
+          - name: linux-java17
+            os: ubuntu-latest
+            java: 17
+          - name: windows-java8
+            os: windows-latest
+            java: 8
+          - name: windows-java11
+            os: windows-latest
+            java: 11
+          - name: windows-java17
+            os: windows-latest
+            java: 17
     steps:
       - name: checkout
         uses: actions/checkout@v2
       - name: set up jdk
         uses: actions/setup-java@v2
         with:
-          java-version: ${{ matrix.java }}
-          distribution: 'adopt'
-      - name: mvn clean verify
+          java-version: ${{ matrix.platform.java }}
+          distribution: temurin
+      - name: verify
         run: mvn --batch-mode --update-snapshots clean verify

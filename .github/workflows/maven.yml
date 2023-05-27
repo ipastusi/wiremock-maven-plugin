@@ -17,12 +17,6 @@ jobs:
           - name: linux-java17
             os: ubuntu-latest
             java: 17
-          - name: windows-java8
-            os: windows-latest
-            java: 8
-          - name: windows-java11
-            os: windows-latest
-            java: 11
           - name: windows-java17
             os: windows-latest
             java: 17

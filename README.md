@@ -50,7 +50,7 @@ src/main/resources/__files/
 </build>
 ```
 
-See [WireMock manual](http://wiremock.org/docs/running-standalone/) for detailed information on available command line
+See [WireMock manual](https://wiremock.org/docs/standalone/java-jar/) for detailed information on available command line
 options.
 
 - Run your tests:

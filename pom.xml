@@ -39,7 +39,7 @@
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <wiremock.version>2.35.0</wiremock.version>
+      <wiremock.version>3.0.1</wiremock.version>
       <jackson.version>2.10.1</jackson.version>
       <slf4j.version>2.0.6</slf4j.version>
    </properties>
@@ -224,8 +224,8 @@
 
    <dependencies>
       <dependency>
-         <groupId>com.github.tomakehurst</groupId>
-         <artifactId>wiremock-jre8</artifactId>
+         <groupId>org.wiremock</groupId>
+         <artifactId>wiremock</artifactId>
          <version>${wiremock.version}</version>
          <scope>provided</scope>
       </dependency>

@@ -40,8 +40,8 @@ src/main/resources/__files/
           </executions>
           <dependencies>
              <dependency>
-                <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock-jre8</artifactId>
+                <groupId>org.wiremock</groupId>
+                <artifactId>wiremock</artifactId>
                 <version><!-- wiremock version you want to use --></version>
              </dependency>
           </dependencies>
@@ -90,8 +90,8 @@ your project:
             
             <dependencies>
                <dependency>
-                  <groupId>com.github.tomakehurst</groupId>
-                  <artifactId>wiremock-jre8</artifactId>
+                  <groupId>org.wiremock</groupId>
+                  <artifactId>wiremock</artifactId>
                   <version><!-- wiremock version you want to use --></version>
                </dependency>
             </dependencies>

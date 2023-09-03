@@ -8,9 +8,6 @@ jobs:
     strategy:
       matrix:
         platform:
-          - name: linux-java8
-            os: ubuntu-latest
-            java: 8
           - name: linux-java11
             os: ubuntu-latest
             java: 11

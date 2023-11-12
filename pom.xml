@@ -10,7 +10,7 @@
    <packaging>maven-plugin</packaging>
    <name>WireMock Maven Plugin</name>
    <description>Run WireMock as part of Maven lifecycle</description>
-   <url>https://github.com/automatictester/wiremock-maven-plugin</url>
+   <url>https://github.com/ipastusi/wiremock-maven-plugin</url>
    <inceptionYear>2016</inceptionYear>
 
    <licenses>
@@ -25,14 +25,14 @@
       <developer>
          <name>Ireneusz Pastusiak</name>
          <email>ireneusz.pastusiak@gmail.com</email>
-         <organizationUrl>https://github.com/automatictester</organizationUrl>
+         <organizationUrl>https://github.com/ipastusi</organizationUrl>
       </developer>
    </developers>
 
    <scm>
-      <connection>scm:git:git@github.com:automatictester/wiremock-maven-plugin.git</connection>
-      <developerConnection>scm:git:git@github.com:automatictester/wiremock-maven-plugin.git</developerConnection>
-      <url>git@github.com:automatictester/wiremock-maven-plugin.git</url>
+      <connection>scm:git:git@github.com:ipastusi/wiremock-maven-plugin.git</connection>
+      <developerConnection>scm:git:git@github.com:ipastusi/wiremock-maven-plugin.git</developerConnection>
+      <url>git@github.com:ipastusi/wiremock-maven-plugin.git</url>
       <tag>HEAD</tag>
    </scm>
 

@@ -1,4 +1,4 @@
-package uk.co.automatictester.wiremock.maven.plugin.util;
+package io.buildlogic.wiremock.maven.plugin.util;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;

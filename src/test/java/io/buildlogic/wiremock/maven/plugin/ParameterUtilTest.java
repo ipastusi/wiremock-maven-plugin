@@ -1,8 +1,8 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package io.buildlogic.wiremock.maven.plugin;
 
+import io.buildlogic.wiremock.maven.plugin.util.ParameterUtil;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import uk.co.automatictester.wiremock.maven.plugin.util.ParameterUtil;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -25,7 +25,7 @@ public class ParameterUtilTest {
     public Object[][] allParamsTestData() {
         return new Object[][]{
                 {"target/classes", "--port=8081", new String[]{"--root-dir=target/classes", "--port=8081"}},
-                {"target/classes", "--port=8081 --extensions=uk.co.automatictester.wiremock.maven.plugin.SampleResponseTransformer -v", new String[]{"--root-dir=target/classes", "--port=8081", "--extensions=uk.co.automatictester.wiremock.maven.plugin.SampleResponseTransformer", "-v"}},
+                {"target/classes", "--port=8081 --extensions=io.buildlogic.wiremock.maven.plugin.SampleResponseTransformer -v", new String[]{"--root-dir=target/classes", "--port=8081", "--extensions=io.buildlogic.wiremock.maven.plugin.SampleResponseTransformer", "-v"}},
                 {"dir with spaces", "--port=8081", new String[]{"--root-dir=dir with spaces", "--port=8081"}}
         };
     }

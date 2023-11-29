@@ -1,11 +1,11 @@
-package uk.co.automatictester.wiremock.maven.plugin.mojo;
+package io.buildlogic.wiremock.maven.plugin.mojo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
-import uk.co.automatictester.wiremock.maven.plugin.server.WireMockServer;
-import uk.co.automatictester.wiremock.maven.plugin.util.ClasspathUtil;
+import io.buildlogic.wiremock.maven.plugin.server.WireMockServer;
+import io.buildlogic.wiremock.maven.plugin.util.ClasspathUtil;
 
 import java.util.Arrays;
 

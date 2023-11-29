@@ -1,4 +1,4 @@
-package uk.co.automatictester.wiremock.maven.plugin.util;
+package io.buildlogic.wiremock.maven.plugin.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package io.buildlogic.wiremock.maven.plugin;
 
 import com.github.tomakehurst.wiremock.common.FileSource;
 import com.github.tomakehurst.wiremock.extension.Parameters;

@@ -1,7 +1,7 @@
-package uk.co.automatictester.wiremock.maven.plugin;
+package io.buildlogic.wiremock.maven.plugin;
 
 import org.testng.annotations.Test;
-import uk.co.automatictester.wiremock.maven.plugin.server.WireMockServer;
+import io.buildlogic.wiremock.maven.plugin.server.WireMockServer;
 
 public class WireMockServerTest {
 

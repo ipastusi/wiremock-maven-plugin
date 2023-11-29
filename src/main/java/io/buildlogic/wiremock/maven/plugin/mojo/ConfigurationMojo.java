@@ -1,9 +1,9 @@
-package uk.co.automatictester.wiremock.maven.plugin.mojo;
+package io.buildlogic.wiremock.maven.plugin.mojo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Parameter;
-import uk.co.automatictester.wiremock.maven.plugin.util.ParameterUtil;
+import io.buildlogic.wiremock.maven.plugin.util.ParameterUtil;
 
 import java.io.File;
 import java.util.List;

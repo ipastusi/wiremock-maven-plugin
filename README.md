@@ -1,8 +1,8 @@
 # WireMock Maven Plugin
 
-[![Central status](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.co.automatictester/wiremock-maven-plugin)
-[![Java](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/maven.yml)
-[![CodeQL](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/automatictester/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml)
+[![Central status](https://maven-badges.herokuapp.com/maven-central/io.buildlogic/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.buildlogic/wiremock-maven-plugin)
+[![Java](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml)
+[![CodeQL](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml)
 
 Run WireMock as part of Maven lifecycle.
 
@@ -21,7 +21,7 @@ src/main/resources/__files/
 <build>
     <plugins>
        <plugin>
-          <groupId>uk.co.automatictester</groupId>
+          <groupId>io.buildlogic</groupId>
           <artifactId>wiremock-maven-plugin</artifactId>          
           <version><!-- check above badge for most recent version of wiremock-maven-plugin --></version>
           
@@ -67,8 +67,8 @@ down at the end of Maven process execution. You can do that by adding `stop` goa
 snippet as an example. This will help you avoid port conflicts in multi-module Maven projects with more than one module
 using this plugin.
 
-See [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/core/pom.xml) for a simple
-example and [pom.xml](https://github.com/automatictester/wiremock-maven-plugin/blob/master/src/it/ext/pom.xml) for an
+See [pom.xml](https://github.com/ipastusi/wiremock-maven-plugin/blob/master/src/it/core/pom.xml) for a simple
+example and [pom.xml](https://github.com/ipastusi/wiremock-maven-plugin/blob/master/src/it/ext/pom.xml) for an
 example with WireMock extension.
 
 If you want to start and stop WireMock manually, but prefer Maven to download it for you, this is how you can configure
@@ -78,7 +78,7 @@ your project:
 <build>
     <plugins>
         <plugin>
-            <groupId>uk.co.automatictester</groupId>
+            <groupId>io.buildlogic</groupId>
             <artifactId>wiremock-maven-plugin</artifactId>
             <version><!-- wiremock-maven-plugin version - check maven central badge above for most recent released version number --></version>
             

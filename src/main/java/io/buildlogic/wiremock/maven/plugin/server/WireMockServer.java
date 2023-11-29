@@ -1,4 +1,4 @@
-package uk.co.automatictester.wiremock.maven.plugin.server;
+package io.buildlogic.wiremock.maven.plugin.server;
 
 import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 

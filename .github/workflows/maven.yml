@@ -14,9 +14,6 @@ jobs:
           - name: linux-java17
             os: ubuntu-latest
             java: 17
-          - name: windows-java17
-            os: windows-latest
-            java: 17
     steps:
       - name: checkout
         uses: actions/checkout@v3

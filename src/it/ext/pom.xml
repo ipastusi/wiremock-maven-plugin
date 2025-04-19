@@ -14,7 +14,7 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <maven.compiler.source>11</maven.compiler.source>
       <maven.compiler.target>11</maven.compiler.target>
-      <wiremock.version>3.3.1</wiremock.version>
+      <wiremock.version>3.12.1</wiremock.version>
    </properties>
 
    <build>
@@ -47,7 +47,7 @@
          <plugin>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-maven-plugin</artifactId>
-            <version>4.6.0</version>
+            <version>4.16.3</version>
             <executions>
                <execution>
                   <goals>
@@ -71,7 +71,7 @@
       <dependency>
          <groupId>io.gatling.highcharts</groupId>
          <artifactId>gatling-charts-highcharts</artifactId>
-         <version>3.9.5</version>
+         <version>3.13.5</version>
          <scope>test</scope>
       </dependency>
    </dependencies>

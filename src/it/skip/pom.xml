@@ -38,7 +38,7 @@
                <dependency>
                   <groupId>org.wiremock</groupId>
                   <artifactId>wiremock</artifactId>
-                  <version>3.3.1</version>
+                  <version>3.12.1</version>
                </dependency>
             </dependencies>
          </plugin>
@@ -46,7 +46,7 @@
          <plugin>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-maven-plugin</artifactId>
-            <version>4.6.0</version>
+            <version>4.16.3</version>
             <executions>
                <execution>
                   <goals>
@@ -64,7 +64,7 @@
       <dependency>
          <groupId>io.gatling.highcharts</groupId>
          <artifactId>gatling-charts-highcharts</artifactId>
-         <version>3.9.5</version>
+         <version>3.13.5</version>
          <scope>test</scope>
       </dependency>
    </dependencies>

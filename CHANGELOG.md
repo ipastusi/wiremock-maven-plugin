@@ -1,4 +1,6 @@
-# Next release
+# 8.1.0
+
+Date: 8 May 2025
 
 - Upgraded dependency versions.
 - Compiled against WireMock 3.13.0.

@@ -20,32 +20,32 @@ src/main/resources/__files/
 ```xml
 <build>
     <plugins>
-       <plugin>
-          <groupId>io.buildlogic</groupId>
-          <artifactId>wiremock-maven-plugin</artifactId>          
-          <version><!-- check above badge for most recent version of wiremock-maven-plugin --></version>
-          
-          <executions>
-             <execution>
-                <goals>
-                   <goal>run</goal>
-                   <goal>stop</goal> <!-- important in multi-module project where more than one module uses this plugin -->
-                </goals>
-                <configuration>
-                   <dir>target/classes</dir>
-                   <params>--port=8081 --verbose</params>
-                   <skip>false</skip> <!-- set to true to skip plugin execution -->
-                </configuration>
-             </execution>
-          </executions>
-          <dependencies>
-             <dependency>
-                <groupId>org.wiremock</groupId>
-                <artifactId>wiremock</artifactId>
-                <version><!-- wiremock version you want to use --></version>
-             </dependency>
-          </dependencies>
-       </plugin>   
+        <plugin>
+            <groupId>io.buildlogic</groupId>
+            <artifactId>wiremock-maven-plugin</artifactId>
+            <version><!-- check above badge for most recent version of wiremock-maven-plugin --></version>
+
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>run</goal>
+                        <goal>stop</goal> <!-- important in multi-module project where more than one module uses this plugin -->
+                    </goals>
+                    <configuration>
+                        <dir>target/classes</dir>
+                        <params>--port=8081 --verbose</params>
+                        <skip>false</skip> <!-- set to true to skip plugin execution -->
+                    </configuration>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wiremock</groupId>
+                    <artifactId>wiremock</artifactId>
+                    <version><!-- wiremock version you want to use --></version>
+                </dependency>
+            </dependencies>
+        </plugin>
     </plugins>
 </build>
 ```
@@ -81,19 +81,19 @@ your project:
             <groupId>io.buildlogic</groupId>
             <artifactId>wiremock-maven-plugin</artifactId>
             <version><!-- wiremock-maven-plugin version - check maven central badge above for most recent released version number --></version>
-            
+
             <configuration>
                 <keepRunning>true</keepRunning>
                 <dir>target/classes</dir>
                 <params>--port=8081 --verbose</params>
             </configuration>
-            
+
             <dependencies>
-               <dependency>
-                  <groupId>org.wiremock</groupId>
-                  <artifactId>wiremock</artifactId>
-                  <version><!-- wiremock version you want to use --></version>
-               </dependency>
+                <dependency>
+                    <groupId>org.wiremock</groupId>
+                    <artifactId>wiremock</artifactId>
+                    <version><!-- wiremock version you want to use --></version>
+                </dependency>
             </dependencies>
         </plugin>
     </plugins>

@@ -1,7 +1,7 @@
 # Next release
 
 - Upgraded dependency versions.
-- Compiled against WireMock 3.12.1.
+- Compiled against WireMock 3.13.0.
 
 # 8.0.0
 

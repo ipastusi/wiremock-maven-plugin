@@ -62,6 +62,7 @@
                <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                <autoReleaseAfterClose>true</autoReleaseAfterClose>
                <autoDropAfterRelease>true</autoDropAfterRelease>
+               <stagingProgressTimeoutMinutes>10</stagingProgressTimeoutMinutes>
             </configuration>
          </plugin>
 

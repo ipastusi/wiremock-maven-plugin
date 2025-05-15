@@ -9,7 +9,7 @@
    <modelVersion>4.0.0</modelVersion>
    <packaging>maven-plugin</packaging>
    <name>WireMock Maven Plugin</name>
-   <description>Run WireMock as part of Maven lifecycle</description>
+   <description>Maven plugin running WireMock as part of the lifecycle</description>
    <url>https://github.com/ipastusi/wiremock-maven-plugin</url>
    <inceptionYear>2016</inceptionYear>
 

@@ -4,7 +4,7 @@
 [![Java](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml)
 [![CodeQL](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml)
 
-Run WireMock as part of Maven lifecycle.
+Maven plugin running WireMock as part of the lifecycle.
 
 ## Quick start guide
 

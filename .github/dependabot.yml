@@ -20,8 +20,8 @@ updates:
         applies-to: "security-updates"
         patterns: [ "*" ]
     ignore:
-      dependency-name: "org.apache.felix:maven-bundle-plugin"
-      versions: "[6.0.0,)"
+      - dependency-name: "org.apache.felix:maven-bundle-plugin"
+        versions: "[6.0.0,)"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

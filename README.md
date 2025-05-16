@@ -1,7 +1,7 @@
 # WireMock Maven Plugin
 
 [![Central status](https://maven-badges.herokuapp.com/maven-central/io.buildlogic/wiremock-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.buildlogic/wiremock-maven-plugin)
-[![Java](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/maven.yml)
+[![Java](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ipastusi/wiremock-maven-plugin/actions/workflows/codeql-analysis.yml)
 
 Maven plugin running WireMock as part of the lifecycle.
